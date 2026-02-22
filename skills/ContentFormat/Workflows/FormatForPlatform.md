@@ -258,7 +258,7 @@ Apply the platform-specific formatting rules below. **Do NOT rewrite the content
 After formatting, copy the result to the system clipboard:
 
 ```bash
-# Windows (Git Bash / WSL)
+# Windows (Git Bash / Windows)
 echo -n "FORMATTED_CONTENT" | clip.exe
 
 # macOS

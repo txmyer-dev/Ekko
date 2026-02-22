@@ -128,7 +128,7 @@ Linux:
 sudo apt install pipx
 Windows:
 
-Use WSL and follow the Linux instructions.
+On Windows, use Git Bash or PowerShell.
 
 Install fabric
 pipx install .

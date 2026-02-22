@@ -1,8 +1,0 @@
-{
-  "rating": 2,
-  "summary": "Frustrated after 9 failed import attempts",
-  "detailed_context": "Tony was trying to import a custom Web Clipper template that I had provided as JSON. He attempted the import 9 times and it continued to fail each time. The root frustration is twofold: (1) the template I provided was apparently incompatible or malformed for his version (v1.0), and (2) the repeated failures without resolution indicate I either gave him incorrect JSON syntax, wrong schema version, or didn't account for his specific version's requirements. Tony did the right troubleshooting step by providing the GitHub link and version number, expecting me to recognize the issue. His repetition of 'failed about 9 times' emphasizes the compounding frustration of a simple task becoming a time sink. What I should have done: verified the template schema against v1.0 documentation before providing it, tested it myself, or asked clarifying questions about his exact Web Clipper version upfront. This reveals Tony expects tools to work on first attempt and becomes frustrated when basic implementations fail repeatedly without clear error messages or resolution from me.",
-  "session_id": "7d0cf704-3017-481b-97b4-90ee1e7b107a",
-  "captured_at": "2026-02-19T04:03:07.158Z",
-  "transcript_source": "7d0cf704-3017-481b-97b4-90ee1e7b107a.jsonl"
-}

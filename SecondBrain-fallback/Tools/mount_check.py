@@ -39,7 +39,7 @@ def is_drive_accessible() -> bool:
 
 
 def try_remount() -> bool:
-    """Attempt to remount F: drive via WSL mount command."""
+    """Attempt to remount F: drive via drive mount command."""
     try:
         subprocess.run(
             ["sudo", "mount", "-t", "drvfs", "F:", "/mnt/f", "-o", "uid=1000,gid=1000"],

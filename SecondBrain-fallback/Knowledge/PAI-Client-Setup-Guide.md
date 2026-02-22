@@ -67,12 +67,12 @@ After setup, your Personal AI will:
 
 ### Required Software
 
-Install these in order. Commands are for **Ubuntu/WSL2**. macOS alternatives noted where different.
+Install these in order. Commands are for **Windows 11 (Git Bash)**. macOS alternatives noted where different.
 
 #### 2.1 Git
 
 ```bash
-# Ubuntu/WSL2
+# Windows (Git Bash)
 sudo apt update && sudo apt install -y git
 
 # macOS (comes with Xcode CLI tools)
@@ -84,7 +84,7 @@ Verify: `git --version` → should show `2.x.x`
 #### 2.2 Node.js + npm
 
 ```bash
-# Ubuntu/WSL2 — via NodeSource (LTS)
+# Windows (Git Bash) — via NodeSource (LTS)
 curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 sudo apt install -y nodejs
 
@@ -108,7 +108,7 @@ Verify: `bun --version` → should show `1.x.x`
 #### 2.4 Python 3.12+
 
 ```bash
-# Ubuntu/WSL2
+# Windows (Git Bash)
 sudo apt install -y python3 python3-pip python3-venv
 
 # macOS
@@ -139,7 +139,7 @@ Verify: `claude --version` → should show `2.x.x (Claude Code)`
 #### 2.7 mpv (media player — for voice playback, optional)
 
 ```bash
-# Ubuntu/WSL2
+# Windows (Git Bash)
 sudo apt install -y mpv
 
 # macOS
@@ -215,13 +215,13 @@ These are used in the reference system but clients typically skip:
 
 ```bash
 cd ~
-git clone https://github.com/txmyer-dev/Eko.git Eko-repo
+git clone https://github.com/txmyer-dev/Ekko.git Ekko-repo
 ```
 
 ### Step 2: Run the Installer
 
 ```bash
-cd ~/Eko-repo
+cd ~/Ekko-repo
 bun run INSTALL.ts
 ```
 
@@ -305,7 +305,7 @@ Located at `~/.claude/settings.json`. The installer creates this, but here's wha
 }
 ```
 
-> **PAI_DIR** must be an absolute path (not `~`). Use `/home/username/.claude` on Linux/WSL or `/Users/username/.claude` on macOS.
+> **PAI_DIR** must be an absolute path (not `~`). Use `C:/Users/username/.claude` on Windows or `/Users/username/.claude` on macOS.
 
 ---
 
@@ -594,7 +594,7 @@ mkdir -p ~/SecondBrain/{Inbox,Memory,Knowledge,Sessions,Heartbeat,Skills,Templat
 
 ### Step 3: Open in Obsidian
 
-Point Obsidian at `~/SecondBrain/` (or the Windows path if using WSL).
+Point Obsidian at `~/SecondBrain/` (or your local vault path).
 
 ### What Goes Where
 

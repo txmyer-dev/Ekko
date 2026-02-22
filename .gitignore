@@ -15,7 +15,7 @@ settings.local.json
 # ── Personal Memory (session-specific, not portable) ──
 MEMORY/RELATIONSHIP/
 MEMORY/WORK/
-MEMORY/LEARNING/ALGORITHM/
+MEMORY/LEARNING/
 MEMORY/STATE/
 MEMORY.backup/
 
@@ -28,6 +28,8 @@ backups/
 todos/
 tasks/
 teams/
+debug/
+paste-cache/
 *.jsonl
 *.backup.*
 
@@ -48,8 +50,9 @@ dist/
 # ── Fabric pattern cache (large, regenerable) ──
 MEMORY/fabric-patterns/
 
-# ── Broken WSL symlinks ──
+# ── Broken symlinks ──
 skills/PAI/USER/TELOS
 
 # ── Session transcripts ──
 *.transcript
+hooks/subagent-stop-debug.log

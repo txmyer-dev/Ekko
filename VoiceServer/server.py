@@ -1,4 +1,4 @@
-"""ElevenLabs Voice Server — Lightweight FastAPI proxy for PAI on WSL2."""
+"""ElevenLabs Voice Server — Lightweight FastAPI proxy for PAI on Windows."""
 
 import logging
 import time

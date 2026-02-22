@@ -1,4 +1,4 @@
-"""Audio playback for WSL2 via mpv."""
+"""Audio playback for Windows via mpv."""
 
 import asyncio
 import logging
@@ -12,7 +12,7 @@ async def play_audio(
     volume: float = 1.0,
     delete_after: bool = True,
 ) -> bool:
-    """Play audio through mpv (works with WSLg PipeWire/PulseAudio)."""
+    """Play audio through mpv (works on Windows)."""
     audio_path = Path(audio_path)
 
     if not audio_path.exists():

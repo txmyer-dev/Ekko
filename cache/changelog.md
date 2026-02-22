@@ -422,7 +422,7 @@
 - Fixed plugin path resolution for file-based marketplace sources
 - Fixed LSP tool being incorrectly enabled when no LSP servers were configured
 - Fixed background tasks failing with "git repository not found" error for repositories with dots in their names
-- Fixed Claude in Chrome support for WSL environments
+- Fixed Claude in Chrome support for Windows environments
 - Fixed Windows native installer silently failing when executable creation fails
 - Improved CLI help output to display options and subcommands in alphabetical order for easier navigation
 - Added wildcard pattern matching for Bash tool permissions using `*` at any position in rules (e.g., `Bash(npm *)`, `Bash(* install)`, `Bash(git * main)`)
@@ -1256,7 +1256,7 @@
 ## 1.0.56
 
 - Windows: Enabled shift+tab for mode switching on versions of Node.js that support terminal VT mode
-- Fixes for WSL IDE detection
+- Fixes for Windows IDE detection
 - Fix an issue causing awsRefreshHelper changes to .aws directory not to be picked up
 
 ## 1.0.55
@@ -1301,7 +1301,7 @@
 - Added progress messages to Bash tool based on the last 5 lines of command output
 - Added expanding variables support for MCP server configuration
 - Moved shell snapshots from /tmp to ~/.claude for more reliable Bash tool calls
-- Improved IDE extension path handling when Claude Code runs in WSL
+- Improved IDE extension path handling when Claude Code runs on Windows
 - Hooks: Added a PreCompact hook
 - Vim mode: Added c, f/F, t/T
 

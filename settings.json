@@ -36,7 +36,7 @@
     "timezone": "America/New_York"
   },
   "pai": {
-    "repoUrl": "github.com/txmyer-dev/Eko",
+    "repoUrl": "github.com/txmyer-dev/Ekko",
     "version": "3.0-surgical"
   },
   "contextDisplay": {
@@ -381,12 +381,12 @@
     "skills": 45,
     "workflows": 167,
     "hooks": 25,
-    "signals": 158,
+    "signals": 159,
     "files": 25,
-    "work": 91,
+    "work": 92,
     "sessions": 22,
     "research": 28,
-    "ratings": 269,
-    "updatedAt": "2026-02-22T15:31:56.988Z"
+    "ratings": 271,
+    "updatedAt": "2026-02-22T15:48:13.811Z"
   }
 }

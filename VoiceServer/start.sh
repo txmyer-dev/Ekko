@@ -1,5 +1,5 @@
 #!/bin/bash
-# Start PAI Voice Server (ElevenLabs, WSL2)
+# Start PAI Voice Server (ElevenLabs, Windows)
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PID_FILE="/tmp/pai-voice-server.pid"
