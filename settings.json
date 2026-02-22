@@ -1,0 +1,392 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "paiVersion": "2.5",
+  "env": {
+    "PAI_DIR": "C:/Users/txmye_ficivtv/.claude",
+    "PROJECTS_DIR": "",
+    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "80000",
+    "BASH_DEFAULT_TIMEOUT_MS": "600000",
+    "PAI_CONFIG_DIR": "C:/Users/txmye_ficivtv/.config/PAI",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "contextFiles": [
+    "skills/PAI/SKILL.md",
+    "skills/PAI/SYSTEM/AISTEERINGRULES.md",
+    "skills/PAI/USER/AISTEERINGRULES.md",
+    "skills/PAI/USER/DAIDENTITY.md"
+  ],
+  "daidentity": {
+    "name": "Ekko",
+    "fullName": "Ekko - Personal AI Infrastructure",
+    "displayName": "Ekko",
+    "color": "#3B82F6",
+    "voiceId": "rWyjfFeMZ6PxkHqD3wGC",
+    "voice": {
+      "stability": 0.35,
+      "similarity_boost": 0.8,
+      "style": 0.9,
+      "speed": 1.1,
+      "use_speaker_boost": true,
+      "volume": 0.8
+    },
+    "startupCatchphrase": "Discipline Equals Freedom."
+  },
+  "principal": {
+    "name": "Tony",
+    "timezone": "America/New_York"
+  },
+  "pai": {
+    "repoUrl": "github.com/txmyer-dev/Eko",
+    "version": "3.0-surgical"
+  },
+  "contextDisplay": {
+    "compactionThreshold": 83,
+    "_docs": "Autocompact buffer is 16.5% of context window."
+  },
+  "techStack": {
+    "terminal": "Git Bash",
+    "packageManager": "bun",
+    "pythonPackageManager": "uv",
+    "language": "TypeScript"
+  },
+  "notifications": {
+    "ntfy": {
+      "enabled": true,
+      "topic": "ekko-6b6c21fbd9a6ca84",
+      "server": "ntfy.sh"
+    },
+    "thresholds": {
+      "longTaskMinutes": 5
+    },
+    "routing": {
+      "taskComplete": [],
+      "longTask": [
+        "ntfy"
+      ],
+      "backgroundAgent": [
+        "ntfy"
+      ],
+      "error": [
+        "ntfy"
+      ],
+      "security": [
+        "ntfy"
+      ]
+    }
+  },
+  "permissions": {
+    "allow": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "MultiEdit",
+      "Glob",
+      "Grep",
+      "LS",
+      "WebFetch",
+      "WebSearch",
+      "NotebookRead",
+      "NotebookEdit",
+      "TodoWrite",
+      "ExitPlanMode",
+      "Task",
+      "Skill",
+      "mcp__*"
+    ],
+    "deny": [],
+    "ask": [
+      "Bash(rm -rf /)",
+      "Bash(rm -rf /:*)",
+      "Bash(sudo rm -rf /)",
+      "Bash(sudo rm -rf /:*)",
+      "Bash(rm -rf ~)",
+      "Bash(rm -rf ~:*)",
+      "Bash(rm -rf ~/.claude)",
+      "Bash(rm -rf ~/.claude:*)",
+      "Bash(diskutil eraseDisk:*)",
+      "Bash(diskutil zeroDisk:*)",
+      "Bash(diskutil partitionDisk:*)",
+      "Bash(diskutil apfs deleteContainer:*)",
+      "Bash(diskutil apfs eraseVolume:*)",
+      "Bash(dd if=/dev/zero:*)",
+      "Bash(mkfs:*)",
+      "Bash(gh repo delete:*)",
+      "Bash(gh repo edit --visibility public:*)",
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(git push origin --force:*)",
+      "Bash(git push origin -f:*)",
+      "Read(~/.ssh/id_*)",
+      "Read(~/.ssh/*.pem)",
+      "Read(~/.aws/credentials)",
+      "Read(~/.gnupg/private*)",
+      "Write(~/.claude/settings.json)",
+      "Edit(~/.claude/settings.json)",
+      "Write(~/.ssh/*)",
+      "Edit(~/.ssh/*)"
+    ],
+    "defaultMode": "default"
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [],
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/VoiceGate.hook.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/SecurityValidator.hook.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/SecurityValidator.hook.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/SecurityValidator.hook.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/SecurityValidator.hook.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "AskUserQuestion",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/SetQuestionTab.hook.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/AgentExecutionGuard.hook.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "Skill",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/SkillGuard.hook.ts"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "AskUserQuestion",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/QuestionAnswered.hook.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/AlgorithmTracker.hook.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "TaskCreate",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/AlgorithmTracker.hook.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "TaskUpdate",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/AlgorithmTracker.hook.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/AlgorithmTracker.hook.ts"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/WorkCompletionLearning.hook.ts"
+          },
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/SessionSummary.hook.ts"
+          },
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/RelationshipMemory.hook.ts"
+          },
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/SoulEvolution.hook.ts"
+          },
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/UpdateCounts.hook.ts"
+          },
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/IntegrityCheck.hook.ts"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/RatingCapture.hook.ts"
+          },
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/FormatReminder.hook.ts"
+          },
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/AutoWorkCreation.hook.ts"
+          },
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/ExplicitRatingCapture.hook.ts"
+          },
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/ImplicitSentimentCapture.hook.ts"
+          },
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/UpdateTabTitle.hook.ts"
+          },
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/SessionAutoName.hook.ts"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/StartupGreeting.hook.ts"
+          },
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/LoadContext.hook.ts"
+          },
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/CheckVersion.hook.ts"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/StopOrchestrator.hook.ts"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${PAI_DIR}/hooks/AgentOutputCapture.hook.ts"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "${PAI_DIR}/statusline-command.sh"
+  },
+  "plansDirectory": "Plans/",
+  "teammateMode": "in-process",
+  "alwaysThinkingEnabled": true,
+  "_docs": {
+    "_overview": "SETTINGS.JSON - Central configuration for PAI v2.5. Replace __INSTALL_WILL_SET_THIS__ placeholders with your paths.",
+    "_sections": {
+      "contextFiles": "Files loaded at session start. Defaults: SKILL.md, AISTEERINGRULES (SYSTEM+USER), DAIDENTITY. Customize to load additional context.",
+      "daidentity": "AI identity (name, voice). Edit directly to customize.",
+      "principal": "Your identity. Edit name and timezone directly.",
+      "permissions": "Pre-configured for security and usability.",
+      "hooks": "Hook configuration for lifecycle events."
+    },
+    "_env": {
+      "PAI_DIR": "REQUIRED. Root directory for your PAI installation (usually ~/.claude). Replace placeholder with absolute path.",
+      "PROJECTS_DIR": "OPTIONAL. Base directory for projects (e.g., ~/Projects). Skills use ${PROJECTS_DIR}/PAI for public repo path. Set empty string if unused."
+    }
+  },
+  "max_tokens": 4096,
+  "counts": {
+    "skills": 45,
+    "workflows": 167,
+    "hooks": 25,
+    "signals": 158,
+    "files": 25,
+    "work": 91,
+    "sessions": 22,
+    "research": 28,
+    "ratings": 269,
+    "updatedAt": "2026-02-22T15:31:56.988Z"
+  }
+}

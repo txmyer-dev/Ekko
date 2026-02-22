@@ -1,0 +1,245 @@
+2026-02-15T05:38:29.317Z [DEBUG] [init] configureGlobalMTLS starting
+2026-02-15T05:38:29.317Z [DEBUG] [init] configureGlobalMTLS complete
+2026-02-15T05:38:29.317Z [DEBUG] [init] configureGlobalAgents starting
+2026-02-15T05:38:29.317Z [DEBUG] [init] configureGlobalAgents complete
+2026-02-15T05:38:29.322Z [DEBUG] [ToolSearch:optimistic] mode=tst-auto, ENABLE_TOOL_SEARCH=undefined, result=true
+2026-02-15T05:38:29.323Z [DEBUG] [STARTUP] Loading MCP configs...
+2026-02-15T05:38:29.330Z [DEBUG] [STARTUP] Running setup()...
+2026-02-15T05:38:29.333Z [DEBUG] Loading skills from: managed=/etc/claude-code/.claude/skills, user=/home/txmyer/.claude/skills, project=[]
+2026-02-15T05:38:29.333Z [DEBUG] Passes: Using fresh cached eligibility data
+2026-02-15T05:38:29.333Z [DEBUG] Error log sink initialized
+2026-02-15T05:38:29.336Z [DEBUG] [STARTUP] setup() completed in 6ms
+2026-02-15T05:38:29.336Z [DEBUG] [STARTUP] Loading commands and agents...
+2026-02-15T05:38:29.407Z [DEBUG] Loaded 0 unique skills (0 unconditional, 0 conditional, managed: 0, user: 0, project: 0, additional: 0, legacy commands: 0)
+2026-02-15T05:38:29.409Z [DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+2026-02-15T05:38:29.409Z [DEBUG] getPluginSkills: Processing 0 enabled plugins
+2026-02-15T05:38:29.409Z [DEBUG] Total plugin skills loaded: 0
+2026-02-15T05:38:29.409Z [DEBUG] Total plugin commands loaded: 0
+2026-02-15T05:38:29.409Z [DEBUG] Registered 0 hooks from 0 plugins
+2026-02-15T05:38:29.409Z [DEBUG] Total plugin agents loaded: 0
+2026-02-15T05:38:29.409Z [DEBUG] [claudeai-mcp] Checking gate (cached)...
+2026-02-15T05:38:29.409Z [DEBUG] [claudeai-mcp] Gate returned: true
+2026-02-15T05:38:29.409Z [DEBUG] [claudeai-mcp] Fetching from https://api.anthropic.com/v1/mcp_servers?limit=1000
+2026-02-15T05:38:29.414Z [DEBUG] getSkills returning: 0 skill dir commands, 0 plugin skills, 2 bundled skills
+2026-02-15T05:38:29.415Z [DEBUG] [STARTUP] Commands and agents loaded in 79ms
+2026-02-15T05:38:29.415Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2026-02-15T05:38:29.415Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2026-02-15T05:38:29.415Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2026-02-15T05:38:29.415Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:29.415Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:29.415Z [DEBUG] Passes: Using fresh cached eligibility data
+2026-02-15T05:38:29.416Z [DEBUG] Total LSP servers loaded: 0
+2026-02-15T05:38:29.416Z [DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+2026-02-15T05:38:29.416Z [DEBUG] LSP manager initialized with 0 servers
+2026-02-15T05:38:29.416Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:29.417Z [DEBUG] LSP server manager initialized successfully
+2026-02-15T05:38:29.417Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2026-02-15T05:38:29.443Z [DEBUG] Cannot acquire lock for 2.1.42 - held by PID 574656
+2026-02-15T05:38:29.443Z [ERROR] Error: Error: NON-FATAL: Lock acquisition failed for /home/txmyer/.local/share/claude/versions/2.1.42 (expected in multi-process scenarios)
+    at VO$ (/$bunfs/root/claude:3480:2098)
+    at UhA (/$bunfs/root/claude:3480:1209)
+    at processTicksAndRejections (native:7:39)
+2026-02-15T05:38:29.581Z [DEBUG] [claudeai-mcp] Fetched 4 servers
+2026-02-15T05:38:29.581Z [DEBUG] [STARTUP] MCP configs loaded in 258ms
+2026-02-15T05:38:29.582Z [DEBUG] MCP server "claude.ai Slack": Initializing claude.ai proxy transport for server mcpsrv_01RcKwd37J24tjZRFQzuR93X
+2026-02-15T05:38:29.582Z [DEBUG] MCP server "claude.ai Slack": Using claude.ai proxy at https://mcp-proxy.anthropic.com/v1/mcp/mcpsrv_01RcKwd37J24tjZRFQzuR93X
+2026-02-15T05:38:29.582Z [DEBUG] MCP server "claude.ai Slack": claude.ai proxy transport created successfully
+2026-02-15T05:38:29.584Z [DEBUG] MCP server "claude.ai Slack": Starting connection with timeout of 30000ms
+2026-02-15T05:38:29.584Z [DEBUG] MCP server "claude.ai Todoist": Initializing claude.ai proxy transport for server mcpsrv_01GsGA6DpZ9kRxKjDDVnn8FL
+2026-02-15T05:38:29.584Z [DEBUG] MCP server "claude.ai Todoist": Using claude.ai proxy at https://mcp-proxy.anthropic.com/v1/mcp/mcpsrv_01GsGA6DpZ9kRxKjDDVnn8FL
+2026-02-15T05:38:29.584Z [DEBUG] MCP server "claude.ai Todoist": claude.ai proxy transport created successfully
+2026-02-15T05:38:29.585Z [DEBUG] MCP server "claude.ai Todoist": Starting connection with timeout of 30000ms
+2026-02-15T05:38:29.585Z [DEBUG] MCP server "claude.ai n8n": Initializing claude.ai proxy transport for server mcpsrv_01JTwUS3YEnVMbFhz6Tt7Kng
+2026-02-15T05:38:29.585Z [DEBUG] MCP server "claude.ai n8n": Using claude.ai proxy at https://mcp-proxy.anthropic.com/v1/mcp/mcpsrv_01JTwUS3YEnVMbFhz6Tt7Kng
+2026-02-15T05:38:29.585Z [DEBUG] MCP server "claude.ai n8n": claude.ai proxy transport created successfully
+2026-02-15T05:38:29.585Z [DEBUG] MCP server "claude.ai n8n": Starting connection with timeout of 30000ms
+2026-02-15T05:38:29.585Z [DEBUG] MCP server "claude.ai Notion": Initializing claude.ai proxy transport for server mcpsrv_01QCFYG98mzif5T9XAwcMka1
+2026-02-15T05:38:29.586Z [DEBUG] MCP server "claude.ai Notion": Using claude.ai proxy at https://mcp-proxy.anthropic.com/v1/mcp/mcpsrv_01QCFYG98mzif5T9XAwcMka1
+2026-02-15T05:38:29.586Z [DEBUG] MCP server "claude.ai Notion": claude.ai proxy transport created successfully
+2026-02-15T05:38:29.586Z [DEBUG] MCP server "claude.ai Notion": Starting connection with timeout of 30000ms
+2026-02-15T05:38:29.590Z [DEBUG] Org fast mode: enabled
+2026-02-15T05:38:29.592Z [DEBUG] Writing to temp file: /home/txmyer/.claude.json.tmp.644889.1771133909592
+2026-02-15T05:38:29.592Z [DEBUG] Preserving file permissions: 100600
+2026-02-15T05:38:29.595Z [DEBUG] Temp file written successfully, size: 10150 bytes
+2026-02-15T05:38:29.595Z [DEBUG] Applied original permissions to temp file
+2026-02-15T05:38:29.595Z [DEBUG] Renaming /home/txmyer/.claude.json.tmp.644889.1771133909592 to /home/txmyer/.claude.json
+2026-02-15T05:38:29.595Z [DEBUG] File /home/txmyer/.claude.json written atomically
+2026-02-15T05:38:29.869Z [DEBUG] MCP server "claude.ai Notion": claude.ai proxy connection failed after 284ms: Streamable HTTP error: Error POSTing to endpoint: {"type":"error","error":{"type":"authentication_error","message":"MCP server requires authentication but no OAuth token is configured."},"request_id":"req_011CY9KGUmDwgzUR8cFDz5vb"}
+2026-02-15T05:38:29.869Z [ERROR] MCP server "claude.ai Notion" Error: Streamable HTTP error: Error POSTing to endpoint: {"type":"error","error":{"type":"authentication_error","message":"MCP server requires authentication but no OAuth token is configured."},"request_id":"req_011CY9KGUmDwgzUR8cFDz5vb"}
+2026-02-15T05:38:29.869Z [DEBUG] MCP server "claude.ai Notion": Authentication required for claude.ai proxy server
+2026-02-15T05:38:30.178Z [DEBUG] MCP server "claude.ai Slack": Successfully connected to claudeai-proxy server in 596ms
+2026-02-15T05:38:30.178Z [DEBUG] MCP server "claude.ai Slack": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":true,"serverVersion":{"name":"Slack MCP","version":"1.0.0"}}
+2026-02-15T05:38:30.332Z [DEBUG] MCP server "claude.ai n8n": claude.ai proxy connection failed after 747ms: Streamable HTTP error: Error POSTing to endpoint: {"type":"error","error":{"type":"authentication_error","message":"Token refresh failed with status 500: No description provided"},"request_id":"req_011CY9KGUjz3MKK2vexhGjHu"}
+2026-02-15T05:38:30.332Z [ERROR] MCP server "claude.ai n8n" Error: Streamable HTTP error: Error POSTing to endpoint: {"type":"error","error":{"type":"authentication_error","message":"Token refresh failed with status 500: No description provided"},"request_id":"req_011CY9KGUjz3MKK2vexhGjHu"}
+2026-02-15T05:38:30.332Z [DEBUG] MCP server "claude.ai n8n": Authentication required for claude.ai proxy server
+2026-02-15T05:38:30.356Z [DEBUG] MCP server "claude.ai Todoist": Successfully connected to claudeai-proxy server in 772ms
+2026-02-15T05:38:30.356Z [DEBUG] MCP server "claude.ai Todoist": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":true,"serverVersion":{"name":"todoist-mcp-server","version":"0.1.0"}}
+2026-02-15T05:38:30.849Z [DEBUG] installed_plugins.json doesn't exist, returning empty V2 object
+2026-02-15T05:38:30.849Z [DEBUG] Initialized versioned plugins system with 0 plugins
+2026-02-15T05:38:30.850Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-02-15T05:38:30.944Z [DEBUG] Watching for changes in setting files /home/txmyer/.claude/settings.json...
+2026-02-15T05:38:30.959Z [DEBUG] [Perfetto] initializePerfettoTracing called, env value: undefined
+2026-02-15T05:38:30.960Z [DEBUG] Plugin autoupdate: skipped (auto-updater disabled)
+2026-02-15T05:38:30.962Z [DEBUG] Grove: Using fresh cached config
+2026-02-15T05:38:30.981Z [DEBUG] Watching for changes in skill/command directories: /home/txmyer/.claude/skills...
+2026-02-15T05:38:30.982Z [DEBUG] Stats cache is up to date
+2026-02-15T05:38:31.318Z [DEBUG] Getting matching hook commands for SessionStart with query: startup
+2026-02-15T05:38:31.318Z [DEBUG] Found 0 hook matchers in settings
+2026-02-15T05:38:31.318Z [DEBUG] Matched 0 unique hooks for query "startup" (0 before deduplication)
+2026-02-15T05:38:31.318Z [DEBUG] installPluginsForHeadless: starting
+2026-02-15T05:38:31.318Z [DEBUG] Found 0 installed plugins (V2 format)
+2026-02-15T05:38:31.319Z [DEBUG] installPluginsForHeadless: no missing plugins or marketplaces configured
+2026-02-15T05:38:31.320Z [DEBUG] [SystemPrompt] path=simple proactive=false
+2026-02-15T05:38:31.323Z [DEBUG] Total plugin output styles loaded: 0
+2026-02-15T05:38:31.346Z [DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/home/txmyer/.local/share/claude/versions/2.1.42)
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.348Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.349Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.349Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.349Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.349Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.349Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.349Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.349Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.349Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.349Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.349Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.349Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.349Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.349Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.349Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.355Z [DEBUG] Writing to temp file: /home/txmyer/.claude.json.tmp.644889.1771133911355
+2026-02-15T05:38:31.355Z [DEBUG] Preserving file permissions: 100600
+2026-02-15T05:38:31.357Z [DEBUG] Temp file written successfully, size: 10150 bytes
+2026-02-15T05:38:31.357Z [DEBUG] Applied original permissions to temp file
+2026-02-15T05:38:31.357Z [DEBUG] Renaming /home/txmyer/.claude.json.tmp.644889.1771133911355 to /home/txmyer/.claude.json
+2026-02-15T05:38:31.357Z [DEBUG] File /home/txmyer/.claude.json written atomically
+2026-02-15T05:38:31.359Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-02-15T05:38:31.359Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-02-15T05:38:31.359Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-02-15T05:38:31.359Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-02-15T05:38:31.359Z [DEBUG] Sending 1 skills via attachment (initial, 1 total sent)
+2026-02-15T05:38:31.360Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2026-02-15T05:38:31.360Z [DEBUG] Found 0 hook matchers in settings
+2026-02-15T05:38:31.360Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-02-15T05:38:31.361Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-15T05:38:31.361Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-15T05:38:31.361Z [DEBUG] autocompact: tokens=95 threshold=167000 effectiveWindow=180000
+2026-02-15T05:38:31.361Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-15T05:38:31.361Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-15T05:38:31.362Z [DEBUG] Tool search disabled: ToolSearchTool is not available (may have been disallowed via disallowedTools).
+2026-02-15T05:38:31.363Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.42.c31; cc_entrypoint=cli; cch=00000;
+2026-02-15T05:38:31.364Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-02-15T05:38:31.364Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-15T05:38:31.364Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-15T05:38:31.364Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-15T05:38:31.364Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-02-15T05:38:31.364Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-15T05:38:31.364Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-15T05:38:31.364Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-02-15T05:38:32.637Z [DEBUG] Tool search disabled: ToolSearchTool is not available (may have been disallowed via disallowedTools).
+2026-02-15T05:38:33.488Z [DEBUG] Stream started - received first chunk
+2026-02-15T05:38:37.907Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2026-02-15T05:38:37.907Z [DEBUG] Found 0 hook matchers in settings
+2026-02-15T05:38:37.907Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-02-15T05:38:37.908Z [DEBUG] Getting matching hook commands for SessionEnd with query: other
+2026-02-15T05:38:37.908Z [DEBUG] Found 0 hook matchers in settings
+2026-02-15T05:38:37.908Z [DEBUG] Matched 0 unique hooks for query "other" (0 before deduplication)

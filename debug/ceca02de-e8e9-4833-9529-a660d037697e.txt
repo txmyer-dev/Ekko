@@ -1,0 +1,181 @@
+2026-02-16T02:42:43.863Z [DEBUG] [init] configureGlobalMTLS starting
+2026-02-16T02:42:43.863Z [DEBUG] [init] configureGlobalMTLS complete
+2026-02-16T02:42:43.863Z [DEBUG] [init] configureGlobalAgents starting
+2026-02-16T02:42:43.864Z [DEBUG] [init] configureGlobalAgents complete
+2026-02-16T02:42:43.871Z [DEBUG] [ToolSearch:optimistic] mode=tst-auto, ENABLE_TOOL_SEARCH=undefined, result=true
+2026-02-16T02:42:43.871Z [DEBUG] [STARTUP] Loading MCP configs...
+2026-02-16T02:42:43.879Z [DEBUG] [STARTUP] Running setup()...
+2026-02-16T02:42:43.882Z [DEBUG] Loading skills from: managed=/etc/claude-code/.claude/skills, user=/home/txmyer/.claude/skills, project=[]
+2026-02-16T02:42:43.883Z [DEBUG] Passes: Using fresh cached eligibility data
+2026-02-16T02:42:43.883Z [DEBUG] Error log sink initialized
+2026-02-16T02:42:43.887Z [DEBUG] [STARTUP] setup() completed in 8ms
+2026-02-16T02:42:43.887Z [DEBUG] [STARTUP] Loading commands and agents...
+2026-02-16T02:42:43.962Z [DEBUG] Loaded 0 unique skills (0 unconditional, 0 conditional, managed: 0, user: 0, project: 0, additional: 0, legacy commands: 0)
+2026-02-16T02:42:43.964Z [DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+2026-02-16T02:42:43.964Z [DEBUG] getPluginSkills: Processing 0 enabled plugins
+2026-02-16T02:42:43.964Z [DEBUG] Total plugin skills loaded: 0
+2026-02-16T02:42:43.964Z [DEBUG] Total plugin commands loaded: 0
+2026-02-16T02:42:43.964Z [DEBUG] Registered 0 hooks from 0 plugins
+2026-02-16T02:42:43.964Z [DEBUG] Total plugin agents loaded: 0
+2026-02-16T02:42:43.964Z [DEBUG] [claudeai-mcp] Checking gate (cached)...
+2026-02-16T02:42:43.964Z [DEBUG] [claudeai-mcp] Gate returned: true
+2026-02-16T02:42:43.964Z [DEBUG] [claudeai-mcp] Fetching from https://api.anthropic.com/v1/mcp_servers?limit=1000
+2026-02-16T02:42:43.969Z [DEBUG] getSkills returning: 0 skill dir commands, 0 plugin skills, 2 bundled skills
+2026-02-16T02:42:43.969Z [DEBUG] [STARTUP] Commands and agents loaded in 82ms
+2026-02-16T02:42:43.969Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2026-02-16T02:42:43.969Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2026-02-16T02:42:43.969Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2026-02-16T02:42:43.970Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-16T02:42:43.970Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-16T02:42:43.970Z [DEBUG] Passes: Using fresh cached eligibility data
+2026-02-16T02:42:43.971Z [DEBUG] Total LSP servers loaded: 0
+2026-02-16T02:42:43.971Z [DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+2026-02-16T02:42:43.971Z [DEBUG] LSP manager initialized with 0 servers
+2026-02-16T02:42:43.971Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-16T02:42:43.973Z [DEBUG] LSP server manager initialized successfully
+2026-02-16T02:42:43.973Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2026-02-16T02:42:44.001Z [DEBUG] Cannot acquire lock for 2.1.42 - held by PID 742090
+2026-02-16T02:42:44.002Z [ERROR] Error: Error: NON-FATAL: Lock acquisition failed for /home/txmyer/.local/share/claude/versions/2.1.42 (expected in multi-process scenarios)
+    at VO$ (/$bunfs/root/claude:3480:2098)
+    at UhA (/$bunfs/root/claude:3480:1209)
+    at processTicksAndRejections (native:7:39)
+2026-02-16T02:42:44.250Z [DEBUG] [claudeai-mcp] Fetched 3 servers
+2026-02-16T02:42:44.251Z [DEBUG] [STARTUP] MCP configs loaded in 380ms
+2026-02-16T02:42:44.252Z [DEBUG] MCP server "claude.ai Slack": Initializing claude.ai proxy transport for server mcpsrv_01RcKwd37J24tjZRFQzuR93X
+2026-02-16T02:42:44.252Z [DEBUG] MCP server "claude.ai Slack": Using claude.ai proxy at https://mcp-proxy.anthropic.com/v1/mcp/mcpsrv_01RcKwd37J24tjZRFQzuR93X
+2026-02-16T02:42:44.252Z [DEBUG] MCP server "claude.ai Slack": claude.ai proxy transport created successfully
+2026-02-16T02:42:44.254Z [DEBUG] MCP server "claude.ai Slack": Starting connection with timeout of 30000ms
+2026-02-16T02:42:44.255Z [DEBUG] MCP server "claude.ai Todoist": Initializing claude.ai proxy transport for server mcpsrv_01GsGA6DpZ9kRxKjDDVnn8FL
+2026-02-16T02:42:44.255Z [DEBUG] MCP server "claude.ai Todoist": Using claude.ai proxy at https://mcp-proxy.anthropic.com/v1/mcp/mcpsrv_01GsGA6DpZ9kRxKjDDVnn8FL
+2026-02-16T02:42:44.255Z [DEBUG] MCP server "claude.ai Todoist": claude.ai proxy transport created successfully
+2026-02-16T02:42:44.255Z [DEBUG] MCP server "claude.ai Todoist": Starting connection with timeout of 30000ms
+2026-02-16T02:42:44.255Z [DEBUG] MCP server "claude.ai n8n": Initializing claude.ai proxy transport for server mcpsrv_01JTwUS3YEnVMbFhz6Tt7Kng
+2026-02-16T02:42:44.255Z [DEBUG] MCP server "claude.ai n8n": Using claude.ai proxy at https://mcp-proxy.anthropic.com/v1/mcp/mcpsrv_01JTwUS3YEnVMbFhz6Tt7Kng
+2026-02-16T02:42:44.255Z [DEBUG] MCP server "claude.ai n8n": claude.ai proxy transport created successfully
+2026-02-16T02:42:44.256Z [DEBUG] MCP server "claude.ai n8n": Starting connection with timeout of 30000ms
+2026-02-16T02:42:44.257Z [DEBUG] Org fast mode: enabled
+2026-02-16T02:42:44.343Z [DEBUG] Writing to temp file: /home/txmyer/.claude.json.tmp.782749.1771209764343
+2026-02-16T02:42:44.343Z [DEBUG] Preserving file permissions: 100600
+2026-02-16T02:42:44.345Z [DEBUG] Temp file written successfully, size: 10249 bytes
+2026-02-16T02:42:44.345Z [DEBUG] Applied original permissions to temp file
+2026-02-16T02:42:44.345Z [DEBUG] Renaming /home/txmyer/.claude.json.tmp.782749.1771209764343 to /home/txmyer/.claude.json
+2026-02-16T02:42:44.345Z [DEBUG] File /home/txmyer/.claude.json written atomically
+2026-02-16T02:42:44.705Z [DEBUG] MCP server "claude.ai Slack": claude.ai proxy connection failed after 454ms: Streamable HTTP error: Error POSTing to endpoint: {"type":"error","error":{"type":"authentication_error","message":"MCP server requires authentication but no OAuth token is configured."},"request_id":"req_011CYAyg6NBMDwgDqHbcHMhZ"}
+2026-02-16T02:42:44.705Z [ERROR] MCP server "claude.ai Slack" Error: Streamable HTTP error: Error POSTing to endpoint: {"type":"error","error":{"type":"authentication_error","message":"MCP server requires authentication but no OAuth token is configured."},"request_id":"req_011CYAyg6NBMDwgDqHbcHMhZ"}
+2026-02-16T02:42:44.705Z [DEBUG] MCP server "claude.ai Slack": Authentication required for claude.ai proxy server
+2026-02-16T02:42:45.133Z [DEBUG] MCP server "claude.ai Todoist": claude.ai proxy connection failed after 878ms: Streamable HTTP error: Error POSTing to endpoint: event: message
+data: {"jsonrpc":"2.0","error":{"code":-32001,"message":"No transport found for sessionId"},"id":null}
+2026-02-16T02:42:45.134Z [ERROR] MCP server "claude.ai Todoist" Error: Streamable HTTP error: Error POSTing to endpoint: event: message
+data: {"jsonrpc":"2.0","error":{"code":-32001,"message":"No transport found for sessionId"},"id":null}
+2026-02-16T02:42:45.134Z [DEBUG] MCP server "claude.ai Todoist": Connection failed after 879ms: Streamable HTTP error: Error POSTing to endpoint: event: message
+data: {"jsonrpc":"2.0","error":{"code":-32001,"message":"No transport found for sessionId"},"id":null}
+2026-02-16T02:42:45.134Z [ERROR] MCP server "claude.ai Todoist" Connection failed: Streamable HTTP error: Error POSTing to endpoint: event: message
+data: {"jsonrpc":"2.0","error":{"code":-32001,"message":"No transport found for sessionId"},"id":null}
+2026-02-16T02:42:45.251Z [DEBUG] MCP server "claude.ai n8n": Successfully connected to claudeai-proxy server in 996ms
+2026-02-16T02:42:45.251Z [DEBUG] MCP server "claude.ai n8n": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"n8n MCP Server","version":"1.0.0"}}
+2026-02-16T02:42:45.493Z [DEBUG] MCP server "claude.ai n8n": CLAUDEAI-PROXY connection dropped after 0s uptime
+2026-02-16T02:42:45.493Z [DEBUG] MCP server "claude.ai n8n": Connection error: Streamable HTTP error: Failed to open SSE stream: Not Found
+2026-02-16T02:42:45.493Z [DEBUG] MCP server "claude.ai n8n": CLAUDEAI-PROXY connection dropped after 0s uptime
+2026-02-16T02:42:45.493Z [DEBUG] MCP server "claude.ai n8n": Connection error: Streamable HTTP error: Failed to open SSE stream: Not Found
+2026-02-16T02:42:45.645Z [DEBUG] installed_plugins.json doesn't exist, returning empty V2 object
+2026-02-16T02:42:45.645Z [DEBUG] Initialized versioned plugins system with 0 plugins
+2026-02-16T02:42:45.646Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-02-16T02:42:45.697Z [DEBUG] Watching for changes in setting files /home/txmyer/.claude/settings.json...
+2026-02-16T02:42:45.712Z [DEBUG] [Perfetto] initializePerfettoTracing called, env value: undefined
+2026-02-16T02:42:45.714Z [DEBUG] Plugin autoupdate: skipped (auto-updater disabled)
+2026-02-16T02:42:45.715Z [DEBUG] Grove: Using fresh cached config
+2026-02-16T02:42:45.730Z [DEBUG] Watching for changes in skill/command directories: /home/txmyer/.claude/skills...
+2026-02-16T02:42:45.736Z [DEBUG] Stats cache is up to date
+2026-02-16T02:42:45.987Z [DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/home/txmyer/.local/share/claude/versions/2.1.42)
+2026-02-16T02:42:46.235Z [DEBUG] Getting matching hook commands for SessionStart with query: startup
+2026-02-16T02:42:46.235Z [DEBUG] Found 0 hook matchers in settings
+2026-02-16T02:42:46.235Z [DEBUG] Matched 0 unique hooks for query "startup" (0 before deduplication)
+2026-02-16T02:42:46.235Z [DEBUG] installPluginsForHeadless: starting
+2026-02-16T02:42:46.235Z [DEBUG] Found 0 installed plugins (V2 format)
+2026-02-16T02:42:46.236Z [DEBUG] installPluginsForHeadless: no missing plugins or marketplaces configured
+2026-02-16T02:42:46.237Z [DEBUG] [SystemPrompt] path=simple proactive=false
+2026-02-16T02:42:46.239Z [DEBUG] Total plugin output styles loaded: 0
+2026-02-16T02:42:46.241Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-16T02:42:46.241Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-16T02:42:46.242Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-16T02:42:46.242Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-16T02:42:46.242Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-16T02:42:46.242Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-16T02:42:46.242Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-16T02:42:46.242Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-16T02:42:46.242Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-16T02:42:46.247Z [ERROR] Failed to save config with lock: Error: Lock file is already being held
+2026-02-16T02:42:46.248Z [DEBUG] Writing to temp file: /home/txmyer/.claude.json.tmp.782749.1771209766248
+2026-02-16T02:42:46.248Z [DEBUG] Preserving file permissions: 100600
+2026-02-16T02:42:46.250Z [DEBUG] Temp file written successfully, size: 10249 bytes
+2026-02-16T02:42:46.250Z [DEBUG] Applied original permissions to temp file
+2026-02-16T02:42:46.250Z [DEBUG] Renaming /home/txmyer/.claude.json.tmp.782749.1771209766248 to /home/txmyer/.claude.json
+2026-02-16T02:42:46.250Z [DEBUG] File /home/txmyer/.claude.json written atomically
+2026-02-16T02:42:46.251Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-02-16T02:42:46.251Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-02-16T02:42:46.251Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-02-16T02:42:46.251Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-02-16T02:42:46.252Z [DEBUG] Sending 1 skills via attachment (initial, 1 total sent)
+2026-02-16T02:42:46.253Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2026-02-16T02:42:46.253Z [DEBUG] Found 0 hook matchers in settings
+2026-02-16T02:42:46.253Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-02-16T02:42:46.254Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-16T02:42:46.254Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-16T02:42:46.254Z [DEBUG] autocompact: tokens=331 threshold=167000 effectiveWindow=180000
+2026-02-16T02:42:46.254Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-16T02:42:46.255Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-16T02:42:46.255Z [DEBUG] Tool search disabled: ToolSearchTool is not available (may have been disallowed via disallowedTools).
+2026-02-16T02:42:46.256Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.42.c31; cc_entrypoint=cli; cch=00000;
+2026-02-16T02:42:46.257Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-02-16T02:42:46.257Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-16T02:42:46.257Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-16T02:42:46.257Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-16T02:42:46.257Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-02-16T02:42:46.258Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-16T02:42:46.258Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-16T02:42:46.258Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-02-16T02:42:46.408Z [DEBUG] Tool search disabled: ToolSearchTool is not available (may have been disallowed via disallowedTools).
+2026-02-16T02:42:46.938Z [DEBUG] Stream started - received first chunk
+2026-02-16T02:42:54.044Z [DEBUG] executePreToolHooks called for tool: mcp__claude_ai_n8n__search_workflows
+2026-02-16T02:42:54.044Z [DEBUG] Getting matching hook commands for PreToolUse with query: mcp__claude_ai_n8n__search_workflows
+2026-02-16T02:42:54.044Z [DEBUG] Found 0 hook matchers in settings
+2026-02-16T02:42:54.044Z [DEBUG] Matched 0 unique hooks for query "mcp__claude_ai_n8n__search_workflows" (0 before deduplication)
+2026-02-16T02:42:54.045Z [DEBUG] Permission suggestions for mcp__claude_ai_n8n__search_workflows: [
+  {
+    "type": "addRules",
+    "rules": [
+      {
+        "toolName": "mcp__claude_ai_n8n__search_workflows"
+      }
+    ],
+    "behavior": "allow",
+    "destination": "localSettings"
+  }
+]
+2026-02-16T02:42:54.045Z [DEBUG] mcp__claude_ai_n8n__search_workflows tool permission denied
+2026-02-16T02:42:54.447Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-02-16T02:42:54.447Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-02-16T02:42:54.447Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-02-16T02:42:54.447Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-02-16T02:42:54.448Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-16T02:42:54.448Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-16T02:42:54.448Z [DEBUG] autocompact: tokens=2428 threshold=167000 effectiveWindow=180000
+2026-02-16T02:42:54.448Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-16T02:42:54.448Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-16T02:42:54.448Z [DEBUG] Tool search disabled: ToolSearchTool is not available (may have been disallowed via disallowedTools).
+2026-02-16T02:42:54.448Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.42.c31; cc_entrypoint=cli; cch=00000;
+2026-02-16T02:42:54.449Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-02-16T02:42:54.449Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-16T02:42:54.449Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-16T02:42:54.449Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-16T02:42:54.449Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-02-16T02:42:54.449Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-16T02:42:54.449Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-16T02:42:54.449Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-02-16T02:42:55.407Z [DEBUG] Stream started - received first chunk
+2026-02-16T02:42:57.040Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2026-02-16T02:42:57.040Z [DEBUG] Found 0 hook matchers in settings
+2026-02-16T02:42:57.040Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-02-16T02:42:57.040Z [DEBUG] Getting matching hook commands for SessionEnd with query: other
+2026-02-16T02:42:57.040Z [DEBUG] Found 0 hook matchers in settings
+2026-02-16T02:42:57.040Z [DEBUG] Matched 0 unique hooks for query "other" (0 before deduplication)

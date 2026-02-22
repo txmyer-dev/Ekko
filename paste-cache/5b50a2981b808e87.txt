@@ -1,0 +1,504 @@
+## Category 1: Discussion Starter Prompts (For Moderators/Admins)
+
+### Template 1.1: Weekly Check-In
+
+**Use Case:** Regular engagement, pulse check, community temperature
+
+**Prompt:**
+
+```
+Happy [Day]! Time for our weekly check-in 👋
+
+Drop a comment and tell us:
+
+1️⃣ One win from this week (big or small)
+2️⃣ One challenge you're facing right now
+3️⃣ One thing you're grateful for
+
+I'll go first:
+
+[Moderator shares their own answers]
+
+Your turn ⬇️
+```
+
+**Why This Works:** Three-part structure is easy to answer, personal vulnerability from moderator sets tone, gratitude adds positive energy
+
+---
+
+### Template 1.2: Problem-Solving Thread
+
+**Use Case:** Generate value through collective intelligence, surface expert knowledge
+
+**Prompt:**
+
+```
+🧠 Collective Intelligence Thread 🧠
+
+Let's solve a problem together.
+
+**The Challenge:** [Specific problem relevant to community]
+
+Examples:
+• [Concrete example 1]
+• [Concrete example 2]
+
+**Your Task:** Drop your best solution, tip, or resource in the comments.
+
+The person with the most helpful response gets [incentive if applicable - spotlight, badge, etc.]
+
+Ready? Go ⬇️
+```
+
+**Why This Works:** Frames contribution as collaborative problem-solving, gives concrete examples, creates friendly competition, recognizes value
+
+---
+
+### Template 1.3: Curated Content Share
+
+**Use Case:** Share valuable external content, spark discussion, position community as knowledge hub
+
+**Prompt:**
+
+```
+📚 Worth Your Time: [Content Title]
+
+I just [read/watched/listened to] this and had to share: [Link]
+
+**Key Takeaway:** [One sentence that captures the main insight]
+
+**Why It Matters:** [How it relates to community members' goals/challenges]
+
+**Discussion Question:** [Thought-provoking question about the content]
+
+Have you [read/watched] this? What did you think? ⬇️
+```
+
+**Why This Works:** Does the work of summarizing, explains relevance, provides entry point for discussion even if they didn't consume content
+
+---
+
+### Template 1.4: Controversial/Debate Post
+
+**Use Case:** Generate engagement through friendly debate, explore different perspectives
+
+**Prompt:**
+
+```
+🔥 Hot Take Alert 🔥
+
+[Controversial but defensible opinion about topic]
+
+Example: "AI will never fully replace [role] because [reason]"
+
+**Why I Think This:** [2-3 sentences defending the position]
+
+**But Here's Where I Might Be Wrong:** [Acknowledging counterarguments]
+
+What do you think? Am I spot on or way off base? ⬇️
+
+Ground rules: Challenge ideas, not people. Let's keep it constructive 🤝
+```
+
+**Why This Works:** Takes a stance (engagement driver), shows humility, sets expectations for civil discourse
+
+---
+
+### Template 1.5: Resource Compilation Request
+
+**Use Case:** Generate crowd-sourced value, make community feel collaborative
+
+**Prompt:**
+
+```
+📚 Community Resource List: [Topic]
+
+Let's build the ultimate [topic] resource list - together.
+
+**What to share:** Your favorite [tool/book/course/podcast/etc.] for [specific use case]
+
+**Format:**
+→ Resource name
+→ One sentence about why it's valuable
+→ [Link if applicable]
+
+I'll compile all the responses into a pinned resource doc for everyone to use.
+
+Drop yours below ⬇️
+```
+
+**Why This Works:** Creates tangible community artifact, gives members easy way to add value, benefits everyone
+
+---
+
+### Template 1.6: Behind-the-Scenes / Founder Update
+
+**Use Case:** Build transparency, humanize leadership, create investment in community success
+
+**Prompt:**
+
+```
+📊 Behind the Scenes: [Month] Update
+
+Hey everyone - [Your Name] here with your monthly peek behind the curtain.
+
+**What We Shipped This Month:**
+• [Feature/improvement 1]
+• [Feature/improvement 2]
+• [Feature/improvement 3]
+
+**What's Coming Next:**
+• [Preview 1]
+• [Preview 2]
+
+**What I Need Your Help With:** [Specific ask or question for community]
+
+**Random Personal Note:** [Something human/vulnerable/relatable]
+
+Questions? Suggestions? Drop them below ⬇️
+```
+
+**Why This Works:** Transparency builds trust, specific ask creates involvement, personal note builds connection
+
+---
+
+## Category 2: Member Introduction Template (For New Members)
+
+### Template 2.1: Standard Introduction Framework
+
+**Use Case:** Help new members introduce themselves without feeling awkward or overthinking
+
+**Prompt Template (Post This in Introductions Section):**
+
+```
+👋 New Member? Introduce Yourself Here!
+
+Welcome! We're excited to have you.
+
+Use this template to introduce yourself (or freestyle if you prefer):
+
+**Who I Am:**
+[Name, location, what you do]
+
+**Why I Joined:**
+[What brought you to this community]
+
+**What I'm Working On:**
+[Current project, goal, or challenge]
+
+**How This Community Can Help Me:**
+[Specific area where you need support]
+
+**Something Random About Me:**
+[Fun fact, hobby, or quirky detail]
+
+Looking forward to connecting! Drop your intro below ⬇️
+```
+
+**Why This Works:** Structured but flexible, asks for specific information that facilitates connections, includes "random" section to add personality
+
+---
+
+### Template 2.2: Visual Introduction Card (Alternative)
+
+**Use Case:** More engaging, easier to scan, works well in communities that value design/visuals
+
+**Prompt Template:**
+
+```
+✨ Introduce Yourself [Fun Visual Style]
+
+New here? Copy this template and fill it in:
+
+━━━━━━━━━━━━━━━━━
+🏷️ NAME:
+📍 LOCATION:
+💼 I DO:
+🎯 MY GOAL:
+🚀 CURRENT PROJECT:
+💡 I CAN HELP WITH:
+🙋 I NEED HELP WITH:
+🎵 FUN FACT:
+━━━━━━━━━━━━━━━━━
+
+Drop yours below! ⬇️
+```
+
+**Why This Works:** Visual format is engaging, emoji make it fun, clearly labeled sections make it scannable
+
+---
+
+## Category 3: Content Creation Prompts (For Contributors)
+
+### Template 3.1: Lesson Learned Post
+
+**Use Case:** Encourage members to share valuable experience-based knowledge
+
+**Prompt Template:**
+
+```
+📚 Lesson Learned Template
+
+Use this to share something you've learned:
+
+**What I Was Trying To Do:**
+[The goal or challenge]
+
+**What I Did:**
+[Your approach or strategy]
+
+**What Happened:**
+[The result - good or bad]
+
+**The Lesson:**
+[What you learned from the experience]
+
+**What I'd Do Differently:**
+[How you'd approach it now]
+
+**Resources That Helped:**
+[Tools, articles, people, etc.]
+
+---
+
+Your turn! Share a lesson you've learned recently ⬇️
+```
+
+**Why This Works:** Structured narrative arc, focuses on learning (not just wins), actionable for others
+
+---
+
+### Template 3.2: Resource Review
+
+**Use Case:** Generate valuable content through reviews of tools, courses, books, etc.
+
+**Prompt Template:**
+
+```
+⭐ Resource Review Template
+
+Share your experience with a tool, book, or course:
+
+**Resource Name:** [Name + Link]
+
+**What It Is:** [One sentence description]
+
+**Who It's For:** [Ideal user/situation]
+
+**What I Liked:**
+• [Pro 1]
+• [Pro 2]
+• [Pro 3]
+
+**What Could Be Better:**
+• [Con 1]
+• [Con 2]
+
+**Bottom Line:** [Would you recommend it? Why or why not?]
+
+**Rating:** [X/10]
+
+---
+
+What resources are you using right now? Review one below ⬇️
+```
+
+**Why This Works:** Balanced (pros and cons), specific target audience, clear recommendation, easy to compare multiple reviews
+
+---
+
+### Template 3.3: Case Study / Results Post
+
+**Use Case:** Share detailed success stories, teach through real examples
+
+**Prompt Template:**
+
+```
+📊 Case Study Template
+
+Share your results and how you got them:
+
+**The Challenge:** [What problem you were solving]
+
+**The Goal:** [What you wanted to achieve]
+
+**The Strategy:** [Your approach - include specific tactics]
+
+**The Timeline:** [How long it took]
+
+**The Results:** [Concrete outcomes with numbers if possible]
+
+**What Worked Well:**
+[Key success factors]
+
+**What Didn't Work:**
+[Things you tried that failed]
+
+**Lessons for Others:**
+[Actionable takeaways]
+
+**Resources/Tools Used:**
+[Specific tools, templates, resources]
+
+---
+
+Got a win to share? Use this template ⬇️
+```
+
+**Why This Works:** Comprehensive but organized, includes failures (credibility), actionable, specific
+
+---
+
+### Template 3.4: Ask Me Anything (AMA) Post
+
+**Use Case:** Generate engagement around member expertise, create value through Q&A
+
+**Prompt Template:**
+
+```
+🎤 AMA Template
+
+Host your own Ask Me Anything:
+
+**Who I Am:** [Brief credentials/experience]
+
+**What I Know About:** [Your areas of expertise]
+
+**What You Can Ask Me:**
+• [Topic 1]
+• [Topic 2]
+• [Topic 3]
+
+**What You Probably Shouldn't Ask Me:** [Humor about what you don't know]
+
+**How This Works:** Drop your questions in the comments below. I'll answer everything over the next [timeframe].
+
+Fire away! ⬇️
+```
+
+**Why This Works:** Positions member as expert, creates engagement through questions, bounded scope prevents overwhelm
+
+---
+
+### Template 3.5: Challenge/Experiment Post
+
+**Use Case:** Document experiments, create accountability, inspire others to try things
+
+**Prompt Template:**
+
+```
+🔬 [X]-Day Challenge Template
+
+Share an experiment you're running:
+
+**The Challenge:** [What you're committing to do]
+
+**Duration:** [How long - 7 days, 30 days, etc.]
+
+**Why I'm Doing This:** [The goal or hypothesis]
+
+**The Rules:**
+• [Rule 1]
+• [Rule 2]
+• [Rule 3]
+
+**How I'll Measure Success:** [Specific metrics or outcomes]
+
+**Progress Updates:** [How often you'll report back]
+
+**Who Wants To Join Me?** [Invitation for others to do it too]
+
+Day 1 starts now. Let's go! 💪
+```
+
+**Why This Works:** Creates ongoing engagement through updates, accountability through public commitment, invites participation
+
+---
+
+## Implementation Guide
+
+### When to Use Each Template Type
+
+| Template Type | Frequency | Best Time |
+| --- | --- | --- |
+| Weekly Check-In | Weekly | Monday morning or Friday afternoon |
+| Problem-Solving | Bi-weekly | When you notice common challenges |
+| Content Share | As needed | When you find genuinely valuable content |
+| Debate/Hot Take | Monthly | When you want to boost engagement |
+| Resource Compilation | Monthly | Start of month (gives time to compile) |
+| Behind-the-Scenes | Monthly | Last week of month |
+| Introduction | Pinned | Always available |
+| Lesson Learned | Encourage weekly | After members try something new |
+| Resource Review | Encourage bi-weekly | After members use new tools |
+| Case Study | Encourage monthly | After members achieve wins |
+| AMA | Monthly | Spotlight different members |
+| Challenge | Quarterly | Start of season/quarter |
+
+### Customization Tips
+
+**For Each Template:**
+
+1. Adjust tone to match your brand (formal vs. casual)
+2. Add relevant emoji for your niche (🎨 for creatives, 💻 for tech, etc.)
+3. Include community-specific terminology or inside jokes
+4. Modify structure to fit your community's preference (longer vs. shorter)
+5. Add relevant hashtags if you use them for organization
+
+### Success Metrics
+
+**Track These for Each Template:**
+
+- Number of responses/comments
+- Time to first response
+- Quality of responses (subjective but important)
+- Whether the post achieved its intended purpose
+- Member feedback on template usefulness
+
+**Iterate Based On:**
+
+- Response rates (if low, template might be too complex or unclear)
+- Quality of contributions (if low-effort, prompt needs to be more specific)
+- Member feedback (ask what would make templates more useful)
+
+---
+
+## Advanced: Template Combinations
+
+**Community Onboarding Flow:**
+
+1. New member introduces self using Template 2.1
+2. Moderator welcomes them using personalized Weekly Check-In (Template 1.1)
+3. Member encouraged to share first Lesson Learned (Template 3.1)
+4. Once active, invited to do Resource Review (Template 3.2)
+5. After 90 days, invited to host AMA (Template 3.4)
+
+**Engagement Escalation Ladder:**
+
+- **Lurker → Commenter:** Weekly Check-In (easy to respond)
+- **Commenter → Contributor:** Lesson Learned (share experience)
+- **Contributor → Power User:** Case Study (detailed contribution)
+- **Power User → Leader:** AMA (position as expert)
+
+---
+
+## FAQ
+
+**Q: Should I post these templates for members to see and use?**
+
+A: Yes! Make templates visible and reusable. Consider creating a "Templates" section or pinned post.
+
+**Q: What if members don't use the templates?**
+
+A: Some won't, and that's okay. Templates lower the barrier for those who want structure. Power users will freestyle.
+
+**Q: How often should I use discussion starters as a moderator?**
+
+A: Start with 2-3x/week until you have organic member-generated content, then scale back to 1-2x/week.
+
+**Q: Can I modify these templates?**
+
+A: Absolutely! These are starting points. Adapt to your community's culture, niche, and needs.
+
+**Q: What if a template doesn't get engagement?**
+
+A: Test it 2-3 times at different times/days. If still low engagement, revise or retire it. Not every template will work for every community.

@@ -1,0 +1,621 @@
+# PAI (Personal AI Infrastructure) Complete Guide
+
+This page contains three comprehensive documents about implementing PAI on your VPS.
+
+---
+
+# Part 1: What is PAI?
+
+## Overview
+
+PAI is a **Personal AI Infrastructure** that transforms Claude Code from a generic AI assistant into a personalized system that knows your goals, remembers your preferences, learns from your feedback, and improves over time.
+
+### Think of it like this:
+
+- **Claude Code alone** = A powerful car engine
+- **PAI** = Everything else that makes it YOUR car (steering wheel, dashboard, memory of your favorite routes, custom settings)
+
+### The Three Levels of AI Systems:
+
+1. **Chatbots** (ChatGPT, Claude): Ask → Answer → Forget
+2. **Agentic Platforms** (Claude Code, Cursor): Ask → Use tools → Get result
+3. **PAI**: Observe → Think → Plan → Execute → Verify → Learn → Improve
+
+## Key Takeaways from Daniel Miessler's Videos
+
+### Core Philosophy
+
+PAI exists to solve a fundamental problem: most people don't believe they can make valuable contributions to the world. PAI helps activate people by:
+
+1. Helping them discover and articulate their purpose through AI
+2. Making powerful AI accessible to everyone, not just the elite
+
+### What Makes PAI Different?
+
+**Three Core Differentiators:**
+
+1. **Goal Orientation** - Focused on YOU and your goals, not just the technology
+2. **Pursuit of Optimal Output** - Always trying to produce the exact right output for your situation
+3. **Continuous Learning** - Captures feedback from every interaction to improve
+
+### PAI Primitives (Core Architecture)
+
+1. **TELOS** - Deep goal understanding through 10 files:
+    - [MISSION.md](http://MISSION.md), [GOALS.md](http://GOALS.md), [PROJECTS.md](http://PROJECTS.md), [BELIEFS.md](http://BELIEFS.md), [MODELS.md](http://MODELS.md)
+    - [STRATEGIES.md](http://STRATEGIES.md), [NARRATIVES.md](http://NARRATIVES.md), [LEARNED.md](http://LEARNED.md), [CHALLENGES.md](http://CHALLENGES.md), [IDEAS.md](http://IDEAS.md)
+2. **Memory System** - Three-tier architecture (hot/warm/cold) that captures:
+    - Ratings and sentiment
+    - Successes and failures
+    - Learning patterns
+3. **Hook System** - Event-driven automation that responds to:
+    - Session starts
+    - Tool usage
+    - Task completions
+    - Security validations
+4. **Skill System** - Modular capabilities following: CODE → CLI → PROMPT → SKILL
+5. **User/System Separation** - Your customizations (USER/) stay separate from infrastructure (SYSTEM/)
+
+### The 16 PAI Principles
+
+1. **User Centricity** - Built around you, not tooling
+2. **Foundational Algorithm** - Scientific method: Observe → Think → Plan → Build → Execute → Verify → Learn
+3. **Clear Thinking First** - Clarify the problem before prompting
+4. **Scaffolding > Model** - Architecture matters more than which AI model
+5. **Deterministic Infrastructure** - Use templates and patterns
+6. **Code Before Prompts** - If bash can solve it, don't use AI
+7. **Spec/Test/Evals First** - Write tests before building
+8. **UNIX Philosophy** - Do one thing well, make it composable
+9. **ENG/SRE Principles** - Treat it like production software
+10. **CLI as Interface** - Command-line is faster and more reliable
+11. **Goal → Code → CLI → Prompts → Agents** - Decision hierarchy
+12. **Skill Management** - Modular, intelligent routing
+13. **Memory System** - Capture everything worth knowing
+14. **Agent Personalities** - Different approaches for different work
+15. **Science as Meta-Loop** - Hypothesis → Experiment → Measure → Iterate
+16. **Permission to Fail** - Can say "I don't know" to prevent hallucinations
+
+---
+
+# Part 2: VPS Setup and Installation
+
+## Prerequisites
+
+Before starting, ensure your VPS has:
+
+- **OS**: Ubuntu 20.04+ or similar Linux distribution
+- **RAM**: At least 2GB (4GB+ recommended)
+- **Node.js**: Version 18+ (for Bun runtime)
+- **Git**: For cloning the repository
+- **Claude Code**: Installed and configured
+
+## Step 1: Prepare Your VPS
+
+```bash
+# SSH into your VPS
+ssh user@your-vps-ip
+
+# Update system packages
+sudo apt update && sudo apt upgrade -y
+
+# Install required dependencies
+sudo apt install -y git curl build-essential
+
+# Install Node.js (if not already installed)
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs
+
+# Verify installations
+node --version
+npm --version
+git --version
+```
+
+## Step 2: Install Bun Runtime
+
+PAI uses Bun for TypeScript execution:
+
+```bash
+# Install Bun
+curl -fsSL https://bun.sh/install | bash
+
+# Add Bun to PATH (add to ~/.bashrc or ~/.zshrc)
+echo 'export PATH="$HOME/.bun/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+
+# Verify Bun installation
+bun --version
+```
+
+## Step 3: Install Claude Code on VPS
+
+```bash
+# Install Claude Code CLI
+npm install -g @anthropic-ai/claude-code
+
+# Verify installation
+claude-code --version
+
+# Initialize Claude Code (you'll need your Anthropic API key)
+claude-code init
+```
+
+You'll be prompted to enter your Anthropic API key. Get one from: https://console.anthropic.com/
+
+## Step 4: Choose Your Installation Path
+
+PAI offers 3 installation options:
+
+### **Option 1: Full Release Install (RECOMMENDED)**
+
+Best for: Getting started quickly with everything pre-configured
+
+```bash
+# Clone the repository
+git clone https://github.com/danielmiessler/PAI.git
+cd PAI/Releases/v2.4
+
+# Backup existing Claude Code config (if any)
+[ -d ~/.claude ] && mv ~/.claude ~/.claude-backup-$(date +%Y%m%d)
+
+# Copy the complete PAI installation
+cp -r .claude ~/
+
+# Run the configuration wizard
+cd ~/.claude
+bun run PAIInstallWizard.ts
+```
+
+The wizard will ask you for:
+
+- Your name
+- Your DA (Digital Assistant) name
+- Your timezone
+- Voice preferences (optional)
+
+After completion, **restart Claude Code** to activate all hooks.
+
+### **Option 2: Bundle + Manual Packs (CUSTOMIZABLE)**
+
+Best for: Learning the system as you build it
+
+```bash
+# Clone the repository
+git clone https://github.com/danielmiessler/PAI.git
+cd PAI/Bundles/Official
+
+# Run the bundle wizard (creates skeleton structure)
+bun run install.ts
+```
+
+After the wizard, you MUST install packs in this order:
+
+```bash
+# Start Claude Code and give it these commands:
+
+# 1. Install hook system
+"Install the pack at PAI/Packs/pai-hook-system/"
+
+# 2. Install core system
+"Install the pack at PAI/Packs/pai-core-install/"
+
+# 3. Install status line
+"Install the pack at PAI/Packs/pai-statusline/"
+
+# 4. Install any additional skill packs you want
+"Install the pack at PAI/Packs/pai-research-skill/"
+"Install the pack at PAI/Packs/pai-algorithm-skill/"
+```
+
+### **Option 3: Individual Packs (CHERRY-PICK)**
+
+Best for: Only installing specific capabilities you need
+
+```bash
+# Clone the repository
+git clone https://github.com/danielmiessler/PAI.git
+
+# Browse available packs
+ls PAI/Packs/
+
+# Give individual pack paths to Claude Code for installation
+```
+
+## Step 5: Configure Environment Variables
+
+Create or edit your environment file:
+
+```bash
+cd ~/.claude
+nano .env
+```
+
+Add your API keys and configuration:
+
+```bash
+# Anthropic API Key (required)
+ANTHROPIC_API_KEY=your_api_key_here
+
+# ElevenLabs (optional - for voice system)
+ELEVENLABS_API_KEY=your_elevenlabs_key_here
+ELEVENLABS_VOICE_ID=your_voice_id_here
+
+# Notification services (optional)
+NTFY_TOPIC=your_ntfy_topic
+DISCORD_WEBHOOK_URL=your_discord_webhook
+
+# User settings
+USER_NAME="Your Name"
+DA_NAME="Your DA Name"
+TIMEZONE="America/New_York"
+```
+
+Save and exit (Ctrl+X, Y, Enter)
+
+## Step 6: Set Up Your TELOS Files
+
+TELOS is how PAI understands your goals and identity:
+
+```bash
+cd ~/.claude/USER/TELOS
+
+# Edit each file to define yourself:
+nano MISSION.md      # Your life mission
+nano GOALS.md        # Current goals
+nano PROJECTS.md     # Active projects
+nano BELIEFS.md      # Core beliefs
+nano MODELS.md       # Mental models you use
+nano STRATEGIES.md   # Your strategies
+nano NARRATIVES.md   # Stories you tell yourself
+nano LEARNED.md      # What you've learned
+nano CHALLENGES.md   # Current challenges
+nano IDEAS.md        # Ideas you want to pursue
+```
+
+**Example [MISSION.md](http://MISSION.md):**
+
+```markdown
+# My Mission
+
+To build and maintain systems that help people work more effectively with AI.
+
+Core focus areas:
+- AI infrastructure and automation
+- Developer productivity
+- Open source contributions
+```
+
+## Step 7: Verify Installation
+
+```bash
+# Check directory structure
+ls -la ~/.claude/
+
+# You should see:
+# USER/          (your customizations)
+# SYSTEM/        (PAI infrastructure)
+# .env           (environment variables)
+# HOOKS/         (event handlers)
+# MEMORY/        (learning system)
+```
+
+Start Claude Code and test:
+
+```bash
+claude-code
+```
+
+Try these commands:
+
+- "What are my current goals?" (should read from TELOS)
+- "Rate this session as positive" (should update memory)
+- "Show me my learning signals" (should display memory stats)
+
+## Step 8: Enable Advanced Features
+
+### Voice System (Optional)
+
+```bash
+# Sign up for ElevenLabs: https://elevenlabs.io/
+# Get your API key and voice ID
+# Add to .env file as shown in Step 5
+```
+
+### Notification System (Optional)
+
+```bash
+# For ntfy (mobile notifications)
+# Visit: https://ntfy.sh/
+# Choose a topic name and add to .env
+
+# For Discord
+# Create a webhook in your Discord server
+# Add webhook URL to .env
+```
+
+### Observability Dashboard (Optional)
+
+```bash
+# Install the observability pack
+cd ~/.claude
+claude-code
+
+# Then in Claude Code:
+"Install the pack at PAI/Packs/pai-observability-server/"
+
+# Start the dashboard
+cd ~/.claude/SYSTEM/OBSERVABILITY
+bun run server.ts
+
+# Access at: http://your-vps-ip:3000
+```
+
+## Step 9: Configure Security
+
+PAI includes security validation by default:
+
+```bash
+# Review security configuration
+nano ~/.claude/SYSTEM/SECURITY/AllowList.json
+
+# Add trusted commands and paths
+# Example:
+{
+  "allowedCommands": [
+    "git",
+    "npm",
+    "node",
+    "bun"
+  ],
+  "allowedPaths": [
+    "/home/user/projects",
+    "/tmp"
+  ]
+}
+```
+
+## Step 10: Install Skill Packs
+
+Browse available skills and install what you need:
+
+**Infrastructure Packs:**
+
+- `pai-hook-system` - Event automation (required)
+- `pai-core-install` - Core functionality (required)
+- `pai-statusline` - Terminal status display
+- `pai-voice-system` - Voice notifications
+- `pai-observability-server` - Monitoring dashboard
+
+**Skill Packs:**
+
+- `pai-research-skill` - Multi-source research
+- `pai-algorithm-skill` - Problem-solving system
+- `pai-browser-skill` - Browser automation
+- `pai-createcli-skill` - Generate CLI tools
+- `pai-osint-skill` - Intelligence gathering
+- `pai-telos-skill` - Life OS and goal capture
+
+Installation command format:
+
+```
+"Install the pack at PAI/Packs/[pack-name]/"
+```
+
+---
+
+# Part 3: Usage and Maintenance
+
+## Daily Usage Tips
+
+### Starting a Session
+
+```bash
+# Claude Code automatically loads your context
+claude-code
+
+# Your DA will greet you and load your TELOS
+```
+
+### Rating Interactions
+
+After any task, rate it to help PAI learn:
+
+- "Rate this as positive"
+- "Rate this as negative"
+- "This was excellent work"
+- "This didn't meet expectations"
+
+### Checking Memory
+
+```bash
+# View learning signals
+"Show me my learning patterns"
+
+# View recent history
+"What have I been working on?"
+
+# Check success rate
+"Show me my task success metrics"
+```
+
+### Using Skills
+
+```bash
+# Trigger research skill
+"Research the latest developments in AI infrastructure"
+
+# Use algorithm skill
+"Help me solve this problem using the algorithm skill"
+
+# Browser automation
+"Navigate to example.com and extract the main content"
+```
+
+## Troubleshooting
+
+### PAI Not Loading
+
+```bash
+# Check if Claude Code is finding the config
+ls ~/.claude/
+
+# Verify hooks are installed
+ls ~/.claude/HOOKS/
+
+# Restart Claude Code
+pkill claude-code
+claude-code
+```
+
+### Environment Variables Not Working
+
+```bash
+# Check .env file exists and has correct format
+cat ~/.claude/.env
+
+# Verify no syntax errors
+# No spaces around =
+# Correct: API_KEY=value
+# Wrong: API_KEY = value
+```
+
+### Permissions Issues
+
+```bash
+# Ensure proper ownership
+sudo chown -R $USER:$USER ~/.claude
+
+# Fix permissions
+chmod -R 755 ~/.claude
+```
+
+### Memory Not Updating
+
+```bash
+# Check memory directory exists
+ls ~/.claude/MEMORY/
+
+# Verify write permissions
+touch ~/.claude/MEMORY/test.txt
+rm ~/.claude/MEMORY/test.txt
+```
+
+## Maintenance
+
+### Regular Updates
+
+```bash
+# Update PAI repository
+cd PAI
+git pull origin main
+
+# Review release notes
+cat CHANGELOG.md
+
+# Apply updates (full release method)
+cd Releases/v2.4
+cp -r .claude ~/.claude-new
+# Review differences and merge
+```
+
+### Backup Your Configuration
+
+```bash
+# Create backup
+tar -czf pai-backup-$(date +%Y%m%d).tar.gz ~/.claude/
+
+# Store securely
+mv pai-backup-*.tar.gz ~/backups/
+```
+
+### Monitor Performance
+
+```bash
+# Check memory usage
+ls -lh ~/.claude/MEMORY/
+
+# Review learning signals
+cat ~/.claude/MEMORY/signals.json
+
+# Check hook execution logs
+tail -f ~/.claude/LOGS/hooks.log
+```
+
+## Advanced Customization
+
+### Creating Custom Skills
+
+```bash
+# Use the createskill skill
+"Create a new skill called my-custom-skill that does X"
+
+# PAI will generate the skill structure
+# Edit the generated files to customize
+```
+
+### Custom Hooks
+
+```bash
+# Add your own hook handlers
+nano ~/.claude/USER/HOOKS/my_custom_hook.ts
+
+# Example hook structure:
+export async function onTaskComplete(context) {
+  // Your custom logic here
+  console.log("Task completed:", context.task);
+}
+```
+
+### Custom Agents
+
+```bash
+# Define new agent personalities
+nano ~/.claude/USER/AGENTS/my_agent.md
+
+# Example agent:
+# Name: Researcher
+# Personality: Thorough and detail-oriented
+# Focus: Deep analysis and verification
+```
+
+## Getting Help
+
+### Resources
+
+- **GitHub Repo**: https://github.com/danielmiessler/Personal_AI_Infrastructure
+- **Documentation**: In the PAI/docs/ directory
+- **Community Discord**: Link in GitHub README
+- **Blog**: [danielmiessler.com](http://danielmiessler.com)
+
+### Common Questions
+
+**Q: Can I use PAI without Claude Code?**
+
+A: Yes! PAI works with Cursor, Windsurf, and other AI coding assistants.
+
+**Q: Do I need all the packs?**
+
+A: No. Start with pai-hook-system and pai-core-install, add others as needed.
+
+**Q: How much does it cost to run?**
+
+A: PAI is free. You pay for API usage (Claude, ElevenLabs, etc.) based on your usage.
+
+**Q: Can I run this on a team server?**
+
+A: Yes! PAI can be used by individuals, teams, or entire organizations.
+
+## Next Steps
+
+1. **Complete TELOS** - Fill out all 10 TELOS files
+2. **Use it daily** - The more you use PAI, the better it gets
+3. **Rate everything** - Help PAI learn your preferences
+4. **Explore skills** - Install and experiment with different capabilities
+5. **Contribute back** - Share your custom skills and improvements
+
+Remember: PAI learns from feedback. Every interaction makes it better at helping YOU specifically.
+
+---
+
+**Built with ❤️ by Daniel Miessler and the PAI community**
+
+**"Augment yourself."**

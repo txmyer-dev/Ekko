@@ -1,0 +1,41 @@
+2026-02-19T07:15:17.500Z [DEBUG] [init] configureGlobalMTLS starting
+2026-02-19T07:15:17.500Z [DEBUG] [init] configureGlobalMTLS complete
+2026-02-19T07:15:17.500Z [DEBUG] [init] configureGlobalAgents starting
+2026-02-19T07:15:17.500Z [DEBUG] [init] configureGlobalAgents complete
+2026-02-19T07:15:17.509Z [DEBUG] Applying permission update: Adding 17 allow rule(s) to destination 'userSettings': ["Bash","Read","Write","Edit","MultiEdit","Glob","Grep","LS","WebFetch","WebSearch","NotebookRead","NotebookEdit","TodoWrite","ExitPlanMode","Task","Skill","mcp__*"]
+2026-02-19T07:15:17.509Z [DEBUG] Applying permission update: Adding 29 ask rule(s) to destination 'userSettings': ["Bash(rm -rf /)","Bash(rm -rf /:*)","Bash(sudo rm -rf /)","Bash(sudo rm -rf /:*)","Bash(rm -rf ~)","Bash(rm -rf ~:*)","Bash(rm -rf ~/.claude)","Bash(rm -rf ~/.claude:*)","Bash(diskutil eraseDisk:*)","Bash(diskutil zeroDisk:*)","Bash(diskutil partitionDisk:*)","Bash(diskutil apfs deleteContainer:*)","Bash(diskutil apfs eraseVolume:*)","Bash(dd if=/dev/zero:*)","Bash(mkfs:*)","Bash(gh repo delete:*)","Bash(gh repo edit --visibility public:*)","Bash(git push --force:*)","Bash(git push -f:*)","Bash(git push origin --force:*)","Bash(git push origin -f:*)","Read(~/.ssh/id_*)","Read(~/.ssh/*.pem)","Read(~/.aws/credentials)","Read(~/.gnupg/private*)","Write(~/.claude/settings.json)","Edit(~/.claude/settings.json)","Write(~/.ssh/*)","Edit(~/.ssh/*)"]
+2026-02-19T07:15:17.509Z [DEBUG] Applying permission update: Adding 17 allow rule(s) to destination 'projectSettings': ["Bash","Read","Write","Edit","MultiEdit","Glob","Grep","LS","WebFetch","WebSearch","NotebookRead","NotebookEdit","TodoWrite","ExitPlanMode","Task","Skill","mcp__*"]
+2026-02-19T07:15:17.509Z [DEBUG] Applying permission update: Adding 29 ask rule(s) to destination 'projectSettings': ["Bash(rm -rf /)","Bash(rm -rf /:*)","Bash(sudo rm -rf /)","Bash(sudo rm -rf /:*)","Bash(rm -rf ~)","Bash(rm -rf ~:*)","Bash(rm -rf ~/.claude)","Bash(rm -rf ~/.claude:*)","Bash(diskutil eraseDisk:*)","Bash(diskutil zeroDisk:*)","Bash(diskutil partitionDisk:*)","Bash(diskutil apfs deleteContainer:*)","Bash(diskutil apfs eraseVolume:*)","Bash(dd if=/dev/zero:*)","Bash(mkfs:*)","Bash(gh repo delete:*)","Bash(gh repo edit --visibility public:*)","Bash(git push --force:*)","Bash(git push -f:*)","Bash(git push origin --force:*)","Bash(git push origin -f:*)","Read(~/.ssh/id_*)","Read(~/.ssh/*.pem)","Read(~/.aws/credentials)","Read(~/.gnupg/private*)","Write(~/.claude/settings.json)","Edit(~/.claude/settings.json)","Write(~/.ssh/*)","Edit(~/.ssh/*)"]
+2026-02-19T07:15:17.509Z [DEBUG] Applying permission update: Adding 18 allow rule(s) to destination 'localSettings': ["mcp__notion__API-post-search","mcp__notion__API-post-page","mcp__notion__API-patch-block-children","mcp__claude_ai_Todoist__find-tasks-by-date","mcp__todoist__todoist_get_tasks","mcp__notion__API-get-block-children","mcp__notion__API-query-data-source","mcp__hostinger__VPS_getVirtualMachinesV1","mcp__hostinger__VPS_getVirtualMachineDetailsV1","mcp__hostinger__VPS_getProjectListV1","mcp__todoist__todoist_create_task","mcp__claude_ai_Todoist__add-tasks","mcp__notion__API-retrieve-a-page","mcp__notion__API-retrieve-a-database","mcp__claude_ai_Todoist__add-projects","mcp__todoist__todoist_tasks","mcp__todoist__todoist_projects","mcp__todoist__todoist_reminders"]
+2026-02-19T07:15:17.509Z [DEBUG] [STARTUP] Loading MCP configs...
+2026-02-19T07:15:17.512Z [DEBUG] [ToolSearch:optimistic] mode=tst-auto, ENABLE_TOOL_SEARCH=undefined, result=true
+2026-02-19T07:15:17.513Z [DEBUG] [STARTUP] Running setup()...
+2026-02-19T07:15:17.515Z [DEBUG] [TeammateModeSnapshot] Captured from config: auto
+2026-02-19T07:15:17.516Z [DEBUG] Loading skills from: managed=/etc/claude-code/.claude/skills, user=/home/txmyer/.claude/skills, project=[]
+2026-02-19T07:15:17.518Z [WARN] Failed to parse YAML frontmatter in /home/txmyer/.claude/skills/Research/SKILL.md: YAML Parse error: Unexpected token
+2026-02-19T07:15:17.537Z [DEBUG] Passes: Using fresh cached eligibility data
+2026-02-19T07:15:17.537Z [DEBUG] Error log sink initialized
+2026-02-19T07:15:17.540Z [DEBUG] [STARTUP] setup() completed in 27ms
+2026-02-19T07:15:17.540Z [DEBUG] [STARTUP] Loading commands and agents...
+2026-02-19T07:15:17.628Z [DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+2026-02-19T07:15:17.628Z [DEBUG] getPluginSkills: Processing 0 enabled plugins
+2026-02-19T07:15:17.628Z [DEBUG] Total plugin skills loaded: 0
+2026-02-19T07:15:17.628Z [DEBUG] Total plugin commands loaded: 0
+2026-02-19T07:15:17.628Z [DEBUG] Registered 0 hooks from 0 plugins
+2026-02-19T07:15:17.632Z [DEBUG] Acquired PID lock for 2.1.42 (PID 349020)
+2026-02-19T07:15:17.632Z [DEBUG] Acquired PID lock on running version: /home/txmyer/.local/share/claude/versions/2.1.42
+2026-02-19T07:15:17.638Z [DEBUG] Total plugin agents loaded: 0
+2026-02-19T07:15:17.653Z [DEBUG] [Claude in Chrome] Extension not found in any browser
+2026-02-19T07:15:17.668Z [DEBUG] Loaded 301 unique skills (301 unconditional, 0 conditional, managed: 0, user: 41, project: 0, additional: 0, legacy commands: 260)
+2026-02-19T07:15:17.668Z [DEBUG] getSkills returning: 301 skill dir commands, 0 plugin skills, 2 bundled skills
+2026-02-19T07:15:17.668Z [DEBUG] [STARTUP] Commands and agents loaded in 128ms
+2026-02-19T07:15:17.670Z [DEBUG] [STARTUP] Running showSetupScreens()...
+2026-02-19T07:15:17.672Z [DEBUG] [keybindings] KeybindingSetup initialized with 102 bindings, 0 warnings
+2026-02-19T07:15:17.695Z [DEBUG] [keybindings] Watching for changes to /home/txmyer/.claude/keybindings.json
+2026-02-19T07:15:17.750Z [DEBUG] Writing to temp file: /home/txmyer/.claude.json.tmp.349020.1771485317750
+2026-02-19T07:15:17.750Z [DEBUG] Preserving file permissions: 100600
+2026-02-19T07:15:17.754Z [DEBUG] Temp file written successfully, size: 14645 bytes
+2026-02-19T07:15:17.754Z [DEBUG] Applied original permissions to temp file
+2026-02-19T07:15:17.754Z [DEBUG] Renaming /home/txmyer/.claude.json.tmp.349020.1771485317750 to /home/txmyer/.claude.json
+2026-02-19T07:15:17.754Z [DEBUG] File /home/txmyer/.claude.json written atomically
+2026-02-19T07:15:20.148Z [DEBUG] Skipping SessionEnd:other hook execution - workspace trust not accepted

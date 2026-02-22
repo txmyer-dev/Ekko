@@ -1,0 +1,11 @@
+2026-02-16T04:36:32.298Z [DEBUG] [init] configureGlobalMTLS starting
+2026-02-16T04:36:32.298Z [DEBUG] [init] configureGlobalMTLS complete
+2026-02-16T04:36:32.298Z [DEBUG] [init] configureGlobalAgents starting
+2026-02-16T04:36:32.298Z [DEBUG] [init] configureGlobalAgents complete
+2026-02-16T04:36:36.197Z [DEBUG] Getting matching hook commands for SessionEnd with query: other
+2026-02-16T04:36:36.197Z [DEBUG] Found 1 hook matchers in settings
+2026-02-16T04:36:36.198Z [DEBUG] Matched 2 unique hooks for query "other" (2 before deduplication)
+2026-02-16T04:36:36.239Z [DEBUG] SessionEnd:other [${PAI_DIR}/hooks/SessionSummary.hook.ts] completed with status 0
+2026-02-16T04:36:36.240Z [DEBUG] Hook output does not start with {, treating as plain text
+2026-02-16T04:36:36.243Z [DEBUG] SessionEnd:other [${PAI_DIR}/hooks/WorkCompletionLearning.hook.ts] completed with status 0
+2026-02-16T04:36:36.243Z [DEBUG] Hook output does not start with {, treating as plain text

@@ -1,0 +1,206 @@
+# Executive Summary
+
+This document provides a comprehensive infrastructure design for a 3-device AI infrastructure setup consisting of a laptop (HQ), Hostinger VPS, and GCP VM (4vCPU, 16GB RAM, 100GB). The architecture is designed around service placement tiers, secure networking via Tailscale, and balanced production/experimental workloads.
+
+**Key Decisions:**
+
+- **Tailscale** instead of Twingate (free for 3 devices, simpler P2P mesh)
+- **Coolify on VPS** for Tier 3 (staging/experimental) only
+- **GCP Cloud Run** for production services (Tier 1/2)
+- **n8n** repositioned as alert orchestration, not monitoring
+- **Laptop hosts dev services** via Docker Compose + Tailscale
+
+---
+
+# Device Roles
+
+## Laptop (HQ)
+
+- **Role:** Development workstation + dev service hosting
+- **Services:** Claude Code, Docker Compose stack (PostgreSQL, Redis, Ollama, Minio, Playwright)
+- **Access:** All services via Tailscale (100.64.0.0/10)
+- **Uptime:** Only when working (Tier 4 services)
+
+## Hostinger VPS
+
+- **Role:** Experimental/staging environment
+- **Services:** Coolify (PaaS), Caddy (reverse proxy), staging apps
+- **Tier:** Tier 3 only (hours of downtime acceptable)
+- **Access:** Public web (80/443), SSH via Tailscale only
+
+## GCP VM (4vCPU, 16GB RAM, 100GB)
+
+- **Role:** Production environment
+- **Services:** Cloud Run deployments, GCP Cloud Monitoring, n8n (alert orchestration)
+- **Tiers:** Tier 1 (multi-region) + Tier 2 (single-region)
+- **Access:** Load balancer health checks + Tailscale only
+
+---
+
+# Networking Architecture (Tailscale)
+
+## Why Tailscale Over Twingate?
+
+**FirstPrinciples Analysis:**
+
+- **Free for 3 devices** (Twingate requires paid plan)
+- **No server infrastructure** (P2P NAT traversal, zero management)
+- **Simpler setup** (install + tailscale up)
+- **Automatic mesh networking** (all devices can reach each other)
+
+## Setup Commands
+
+### Laptop Installation
+
+```bash
+curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up
+```
+
+### VPS Installation
+
+```bash
+curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up --advertise-tags=tag:vps
+```
+
+### GCP VM Installation
+
+```bash
+curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up --advertise-tags=tag:production
+```
+
+## ACL Configuration
+
+Create `/etc/tailscale/acls.json`:
+
+```json
+{
+  "acls": [
+    {
+      "action": "accept",
+      "src": ["autogroup:member"],
+      "dst": ["laptop:*", "vps:80,443,22", "gcp-vm:*"]
+    },
+    {
+      "action": "deny",
+      "src": ["vps"],
+      "dst": ["gcp-vm:*"]
+    }
+  ],
+  "tagOwners": {
+    "tag:production": ["your@email.com"]
+  },
+  "hosts": {
+    "laptop": "100.x.y.1",
+    "vps": "100.x.y.2",
+    "gcp-vm": "100.x.y.3"
+  }
+}
+```
+
+**Security:** Prevents VPS compromise from reaching GCP VM, all traffic encrypted.
+
+---
+
+# Monitoring & Observability
+
+## n8n: Alert Orchestration (NOT Monitoring)
+
+**FirstPrinciples Insight:** n8n is a workflow automation tool, not a monitoring/observability platform. It handles alert **responses**, not metrics collection.
+
+**Correct Architecture:**
+
+1. **Metrics Collection:** GCP Cloud Monitoring (for GCP), Prometheus (custom apps), Coolify healthchecks (VPS)
+2. **Alert Generation:** Above systems detect issues and fire alerts
+3. **Alert Orchestration:** n8n receives alerts and executes response workflows
+
+### n8n Deployment to Cloud Run
+
+```bash
+gcloud run deploy n8n \
+  --image n8nio/n8n:latest \
+  --platform managed \
+  --region us-central1 \
+  --allow-unauthenticated \
+  --memory 512Mi \
+  --cpu 1 \
+  --max-instances 3 \
+  --set-env-vars="N8N_BASIC_AUTH_ACTIVE=true,N8N_HOST=n8n.yourdomain.com,WEBHOOK_URL=https://n8n.yourdomain.com"
+```
+
+### Example n8n Workflows
+
+**1. GCP Alert → Slack Notification**
+
+- Trigger: Webhook from GCP Cloud Monitoring
+- Action: Post to Slack with alert details
+
+**2. VPS Down → Restart Services**
+
+- Trigger: Coolify healthcheck failure
+- Actions: SSH to VPS, restart Docker containers, notify
+
+**3. High Error Rate → Auto-Rollback**
+
+- Trigger: Error rate threshold exceeded
+- Actions: Rollback Cloud Run revision, notify team
+
+---
+
+# Service Deployment Strategy
+
+## 4-Tier Service Model
+
+| Tier | Downtime Tolerance | Platform | Examples |
+| --- | --- | --- | --- |
+| **Tier 1** | <1 hour/year (99.99%) | GCP multi-region | Critical APIs, auth services |
+| **Tier 2** | <1 hour/month (99.9%) | GCP single-region | Important web apps, n8n |
+| **Tier 3** | Hours acceptable | VPS Coolify | Staging, experimental apps |
+| **Tier 4** | Only when laptop on | Laptop Docker Compose | Dev PostgreSQL, Redis, Ollama |
+
+## Coolify Deployment (VPS)
+
+### Installation
+
+```bash
+curl -fsSL https://cdn.coollabs.io/coolify/install.sh | bash
+```
+
+### Access
+
+- Web UI: [`https://coolify.yourdomain.com`](https://coolify.yourdomain.com)
+- Restricted to Tailscale IPs only via Caddy
+
+### Example Tier 3 Services
+
+- Staging Next.js app: [`staging.example.com`](http://staging.example.com)
+- Experimental Grafana dashboard: [`dashboard.personal.dev`](http://dashboard.personal.dev)
+- Test API endpoints: [`api-staging.example.com`](http://api-staging.example.com)
+
+**IMPORTANT:** Coolify is single point of failure. Never deploy production (Tier 1/2) to VPS.
+
+## GCP Cloud Run (Production)
+
+### Why Cloud Run?
+
+- Auto-scaling (0 to N instances)
+- Multi-region deployment support
+- SLA guarantees (99.95% uptime)
+- Pay-per-request (cost-effective)
+- Managed infrastructure (no VM maintenance)
+
+### Example Deployment
+
+```bash
+gcloud run deploy my-api \
+  --image gcr.io/my-project/my-api:latest \
+  --platform managed \
+  --region us-central1 \
+  --allow-unauthenticated \
+  --memory 1Gi \
+  --cpu 2 \
+  --min-instances 1 \
+  --max-instances 10
+```

@@ -1,0 +1,55 @@
+# ════════════════════════════════════════
+# Ekko .gitignore — Protect secrets, allow structure
+# ════════════════════════════════════════
+
+# ── Secrets & Credentials ──
+.env
+.env.*
+*.pem
+*.key
+credentials*
+.credentials*
+secrets*
+settings.local.json
+
+# ── Personal Memory (session-specific, not portable) ──
+MEMORY/RELATIONSHIP/
+MEMORY/WORK/
+MEMORY/LEARNING/ALGORITHM/
+MEMORY/STATE/
+MEMORY.backup/
+
+# ── Claude Code internal files ──
+.claude/
+projects/
+file-history/
+usage-data/
+backups/
+todos/
+tasks/
+teams/
+*.jsonl
+*.backup.*
+
+# ── OS / Editor ──
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# ── Node / Build ──
+node_modules/
+dist/
+*.tsbuildinfo
+
+# ── Fabric pattern cache (large, regenerable) ──
+MEMORY/fabric-patterns/
+
+# ── Broken WSL symlinks ──
+skills/PAI/USER/TELOS
+
+# ── Session transcripts ──
+*.transcript

@@ -1,0 +1,159 @@
+2026-02-22T00:51:18.041Z [DEBUG] [init] configureGlobalMTLS starting
+2026-02-22T00:51:18.041Z [DEBUG] [init] configureGlobalMTLS complete
+2026-02-22T00:51:18.041Z [DEBUG] [init] configureGlobalAgents starting
+2026-02-22T00:51:18.041Z [DEBUG] [init] configureGlobalAgents complete
+2026-02-22T00:51:18.057Z [DEBUG] Using bash path: "C:\Program Files\Git\bin\bash.exe"
+2026-02-22T00:51:18.063Z [DEBUG] [ToolSearch:optimistic] mode=tst-auto, ENABLE_TOOL_SEARCH=undefined, result=true
+2026-02-22T00:51:18.073Z [DEBUG] [STARTUP] Loading MCP configs...
+2026-02-22T00:51:18.080Z [DEBUG] Git remote URL: null
+2026-02-22T00:51:18.080Z [DEBUG] No git remote URL found
+2026-02-22T00:51:18.081Z [DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+2026-02-22T00:51:18.081Z [DEBUG] [claudeai-mcp] Checking gate (cached)...
+2026-02-22T00:51:18.081Z [DEBUG] [claudeai-mcp] Gate returned: true
+2026-02-22T00:51:18.081Z [DEBUG] [claudeai-mcp] Fetching from https://api.anthropic.com/v1/mcp_servers?limit=1000
+2026-02-22T00:51:18.110Z [DEBUG] [STARTUP] Running setup()...
+2026-02-22T00:51:18.111Z [DEBUG] [TeammateModeSnapshot] Captured from config: auto
+2026-02-22T00:51:18.113Z [DEBUG] Loading skills from: managed=C:\ProgramData\ClaudeCode\.claude\skills, user=C:\Users\txmye_ficivtv\.claude\skills, project=[]
+2026-02-22T00:51:18.114Z [DEBUG] Error log sink initialized
+2026-02-22T00:51:18.118Z [DEBUG] getPluginSkills: Processing 0 enabled plugins
+2026-02-22T00:51:18.118Z [DEBUG] Total plugin skills loaded: 0
+2026-02-22T00:51:18.118Z [DEBUG] Total plugin commands loaded: 0
+2026-02-22T00:51:18.123Z [DEBUG] [STARTUP] setup() completed in 13ms
+2026-02-22T00:51:18.123Z [DEBUG] [STARTUP] Loading commands and agents...
+2026-02-22T00:51:18.124Z [DEBUG] Registered 0 hooks from 0 plugins
+2026-02-22T00:51:18.134Z [DEBUG] Total plugin agents loaded: 0
+2026-02-22T00:51:18.134Z [DEBUG] Loaded 0 unique skills (0 unconditional, 0 conditional, managed: 0, user: 0, project: 0, additional: 0, legacy commands: 0)
+2026-02-22T00:51:18.136Z [DEBUG] getSkills returning: 0 skill dir commands, 0 plugin skills, 3 bundled skills
+2026-02-22T00:51:18.137Z [DEBUG] [STARTUP] Commands and agents loaded in 14ms
+2026-02-22T00:51:18.138Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2026-02-22T00:51:18.138Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2026-02-22T00:51:18.138Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2026-02-22T00:51:18.138Z [DEBUG] Passes: Using fresh cached eligibility data
+2026-02-22T00:51:18.139Z [DEBUG] Total LSP servers loaded: 0
+2026-02-22T00:51:18.139Z [DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+2026-02-22T00:51:18.139Z [DEBUG] LSP manager initialized with 0 servers
+2026-02-22T00:51:18.139Z [DEBUG] LSP server manager initialized successfully
+2026-02-22T00:51:18.139Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2026-02-22T00:51:18.266Z [DEBUG] [claudeai-mcp] Fetched 3 servers
+2026-02-22T00:51:18.266Z [DEBUG] [STARTUP] MCP configs loaded in 193ms
+2026-02-22T00:51:18.271Z [DEBUG] installed_plugins.json doesn't exist, returning empty V2 object
+2026-02-22T00:51:18.271Z [DEBUG] Initialized versioned plugins system with 0 plugins
+2026-02-22T00:51:18.304Z [DEBUG] Watching for changes in setting files C:\Users\txmye_ficivtv\.claude\settings.json...
+2026-02-22T00:51:18.358Z [DEBUG] [Perfetto] initializePerfettoTracing called, env value: undefined
+2026-02-22T00:51:18.358Z [DEBUG] [3P telemetry] isTelemetryEnabled=false (CLAUDE_CODE_ENABLE_TELEMETRY=undefined)
+2026-02-22T00:51:18.367Z [DEBUG] Grove: Using fresh cached config
+2026-02-22T00:51:18.423Z [DEBUG] MCP server "claude.ai Slack": Skipping connection (cached needs-auth)
+2026-02-22T00:51:18.424Z [DEBUG] MCP server "claude.ai Todoist": Initializing claude.ai proxy transport for server mcpsrv_01GsGA6DpZ9kRxKjDDVnn8FL
+2026-02-22T00:51:18.424Z [DEBUG] MCP server "claude.ai Todoist": Using claude.ai proxy at https://mcp-proxy.anthropic.com/v1/mcp/mcpsrv_01GsGA6DpZ9kRxKjDDVnn8FL
+2026-02-22T00:51:18.424Z [DEBUG] MCP server "claude.ai Todoist": claude.ai proxy transport created successfully
+2026-02-22T00:51:18.431Z [DEBUG] MCP server "claude.ai Todoist": Starting connection with timeout of 30000ms
+2026-02-22T00:51:18.431Z [DEBUG] MCP server "claude.ai n8n": Initializing claude.ai proxy transport for server mcpsrv_01JTwUS3YEnVMbFhz6Tt7Kng
+2026-02-22T00:51:18.431Z [DEBUG] MCP server "claude.ai n8n": Using claude.ai proxy at https://mcp-proxy.anthropic.com/v1/mcp/mcpsrv_01JTwUS3YEnVMbFhz6Tt7Kng
+2026-02-22T00:51:18.431Z [DEBUG] MCP server "claude.ai n8n": claude.ai proxy transport created successfully
+2026-02-22T00:51:18.432Z [DEBUG] MCP server "claude.ai n8n": Starting connection with timeout of 30000ms
+2026-02-22T00:51:18.434Z [DEBUG] Org fast mode: enabled
+2026-02-22T00:51:18.445Z [ERROR] Failed to save config with lock: Error: Lock file is already being held
+2026-02-22T00:51:18.451Z [DEBUG] Writing to temp file: C:\Users\txmye_ficivtv\.claude.json.tmp.24140.1771721478451
+2026-02-22T00:51:18.452Z [DEBUG] Preserving file permissions: 100666
+2026-02-22T00:51:18.464Z [DEBUG] Temp file written successfully, size: 14324 bytes
+2026-02-22T00:51:18.464Z [DEBUG] Applied original permissions to temp file
+2026-02-22T00:51:18.464Z [DEBUG] Renaming C:\Users\txmye_ficivtv\.claude.json.tmp.24140.1771721478451 to C:\Users\txmye_ficivtv\.claude.json
+2026-02-22T00:51:18.464Z [DEBUG] File C:\Users\txmye_ficivtv\.claude.json written atomically
+2026-02-22T00:51:18.464Z [DEBUG] Watching for changes in skill/command directories: C:\Users\txmye_ficivtv\.claude\skills, C:\Users\txmye_ficivtv\.claude\commands...
+2026-02-22T00:51:18.662Z [DEBUG] Getting matching hook commands for SessionStart with query: startup
+2026-02-22T00:51:18.662Z [DEBUG] Found 0 hook matchers in settings
+2026-02-22T00:51:18.662Z [DEBUG] Matched 0 unique hooks for query "startup" (0 before deduplication)
+2026-02-22T00:51:18.680Z [DEBUG] [FileIndex] getProjectFiles called, respectGitignore=true
+2026-02-22T00:51:18.680Z [DEBUG] [FileIndex] getFilesUsingGit called
+2026-02-22T00:51:18.717Z [DEBUG] [FileIndex] not a git repo, returning null
+2026-02-22T00:51:18.717Z [DEBUG] [FileIndex] git ls-files returned null, falling back to ripgrep
+2026-02-22T00:51:18.755Z [DEBUG] installPluginsForHeadless: starting
+2026-02-22T00:51:18.756Z [DEBUG] Found 0 installed plugins (V2 format)
+2026-02-22T00:51:18.756Z [DEBUG] installPluginsForHeadless: no missing plugins or marketplaces configured
+2026-02-22T00:51:19.098Z [DEBUG] Security messages are fresh (<1h old), skipping fetch
+2026-02-22T00:51:19.489Z [DEBUG] MCP server "claude.ai Todoist": Successfully connected to claudeai-proxy server in 1065ms
+2026-02-22T00:51:19.490Z [DEBUG] MCP server "claude.ai Todoist": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":true,"hasResourceSubscribe":false,"serverVersion":{"name":"todoist-mcp-server","version":"0.1.0"}}
+2026-02-22T00:51:19.491Z [DEBUG] [MCP] Server "claude.ai Todoist" connected with subscribe=false
+2026-02-22T00:51:19.493Z [DEBUG] MCP server "claude.ai n8n": Successfully connected to claudeai-proxy server in 1062ms
+2026-02-22T00:51:19.493Z [DEBUG] MCP server "claude.ai n8n": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"hasResourceSubscribe":false,"serverVersion":{"name":"n8n MCP Server","version":"1.0.0"}}
+2026-02-22T00:51:19.493Z [DEBUG] [MCP] Server "claude.ai n8n" connected with subscribe=false
+2026-02-22T00:51:19.925Z [DEBUG] MCP server "claude.ai n8n": CLAUDEAI-PROXY connection dropped after 0s uptime
+2026-02-22T00:51:19.925Z [DEBUG] MCP server "claude.ai n8n": Connection error: Streamable HTTP error: Failed to open SSE stream: Not Found
+2026-02-22T00:51:19.925Z [DEBUG] MCP server "claude.ai n8n": CLAUDEAI-PROXY connection dropped after 0s uptime
+2026-02-22T00:51:19.925Z [DEBUG] MCP server "claude.ai n8n": Connection error: Streamable HTTP error: Failed to open SSE stream: Not Found
+2026-02-22T00:51:19.932Z [DEBUG] [SystemPrompt] path=simple proactive=false
+2026-02-22T00:51:19.939Z [DEBUG] Total plugin output styles loaded: 0
+2026-02-22T00:51:20.038Z [DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=C:\Users\txmye_ficivtv\.local\bin\claude.exe)
+2026-02-22T00:51:20.041Z [DEBUG] Writing to temp file: C:\Users\txmye_ficivtv\.claude.json.tmp.24140.1771721480041
+2026-02-22T00:51:20.041Z [DEBUG] Preserving file permissions: 100666
+2026-02-22T00:51:20.042Z [DEBUG] Temp file written successfully, size: 14324 bytes
+2026-02-22T00:51:20.043Z [DEBUG] Applied original permissions to temp file
+2026-02-22T00:51:20.043Z [DEBUG] Renaming C:\Users\txmye_ficivtv\.claude.json.tmp.24140.1771721480041 to C:\Users\txmye_ficivtv\.claude.json
+2026-02-22T00:51:20.043Z [DEBUG] File C:\Users\txmye_ficivtv\.claude.json written atomically
+2026-02-22T00:51:20.045Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-02-22T00:51:20.045Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-02-22T00:51:20.046Z [WARN] [3P telemetry] Event dropped (no event logger initialized): user_prompt
+2026-02-22T00:51:20.047Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2026-02-22T00:51:20.047Z [DEBUG] Found 0 hook matchers in settings
+2026-02-22T00:51:20.047Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-02-22T00:51:20.048Z [DEBUG] FileHistory: Added snapshot for 5cb7575a-edb0-4df5-8e36-cbf1cd912696, tracking 0 files
+2026-02-22T00:51:20.048Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-22T00:51:20.050Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-22T00:51:20.050Z [DEBUG] autocompact: tokens=5 threshold=167000 effectiveWindow=180000
+2026-02-22T00:51:20.050Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-22T00:51:20.051Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-22T00:51:20.051Z [DEBUG] Tool search disabled for model 'claude-haiku-4-5-20251001': model does not support tool_reference blocks. This feature is only available on Claude Sonnet 4+, Opus 4+, and newer models.
+2026-02-22T00:51:20.055Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.50.f15; cc_entrypoint=claude-vscode; cch=00000;
+2026-02-22T00:51:20.056Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-22T00:51:20.056Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-22T00:51:20.056Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-22T00:51:20.057Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-22T00:51:20.057Z [DEBUG] CLAUDE_CODE_MAX_OUTPUT_TOKENS Capped from 80000 to 64000
+2026-02-22T00:51:20.164Z [DEBUG] rg error (signal=null, code=2, stderr: rg: .\MEMORY.backup\WORK\20260214-174701_due-to-some-issues-on-my-end-we-have-to-reconfigu\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260218-101506_so-i-would-like-to-replicate-our-current-setup-for\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260214-083233_can-we-turn-up-the-volume-on-the-voice-server-by-t\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260218-014211_meaning-of-this-is-the-bts-phrase\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260213-200904_i-heard-it-but-it-sounds-like-you-replaced-the-vo\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260217-101731_request-for-self-update-information\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260217-094505_push-this-file-to-your-brain\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260213-194911_update-statusline-location-and-weather\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260213-194012_there-was-an-update-for-the-status-bar-that-showed\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260217-094420_affirmation-to-proceed\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260217-094210_insights\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260217-085510_createconceptmap\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260217-081132_fabric-patterns-overview-recommendation\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\skills\PAI\USER\TELOS: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260215-194457_now-what-all-of-this-fire-power-and-i-have-nothin\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260214-204408_greeting-and-context-sharing\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260214-203415_remove-3b3c-from-plan-review-3a\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260214-202556_initialize-session-and-update-memory\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260214-200157_lets-go-back-to-the-free-apis-i-dont-think-we-fin\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260214-203342_check-pai-expansion-plan\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260214-204310_acknowledge-and-skip-nice-to-haves\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260214-203910_clarify-what-should-be-added\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260214-203631_review-phase-4-status\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260214-230730_pai-personal-ai-infrastructure-complete-guide\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260215-174154_add-microsoft-teams-connectivity-to-heartbeat\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260215-165947_find-me-a-reasonably-priced-fuser-unit-for-the-can\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260215-210303_we-recently-pulled-six-files-from-my-notion-about\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260216-012312_test-todoist-mcp\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260214-230001_add-pages-to-second-brain\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260216-012113_tasknotification-taskidbebe69ftaskid-ou\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260215-194709_how-can-you-help-me-maximize-my-us-tax-return-thi\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260214-204457_translate-is-also-completed-and-online-check-off\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260215-201653_clarifying-2025-income-and-business-launch-timelin\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260216-011529_paste-workout-plan-into-obsidian\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260214-230130_update-the-heartbeat-notification-to-every-90-minu\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260215-202312_so-lets-go-path-b-its-the-entire-structure-of-wh\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260215-195205_are-you-still-working\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260215-202513_go\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260215-202410_what-is-in-this-w2-tax-form-image\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260214-215502_given-some-of-our-work-i-think-you-have-some-idea\tasks\current: The file cannot be accessed by the system. (os error 1920)
+rg: .\MEMORY.backup\WORK\20260215-211401_review-documents-and-create-project-plan\tasks\current: The file cannot be accessed by the system. (os error 1920)
+), 7972 results
+2026-02-22T00:51:20.258Z [DEBUG] [FileIndex] ripgrep: 7972 files in 1541ms
+2026-02-22T00:51:20.284Z [DEBUG] [FileIndex] cache refresh completed in 1622ms (rust index)
+2026-02-22T00:51:21.174Z [DEBUG] Stream started - received first chunk
+2026-02-22T00:51:23.652Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2026-02-22T00:51:23.652Z [DEBUG] Found 0 hook matchers in settings
+2026-02-22T00:51:23.652Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)

@@ -1,0 +1,292 @@
+---
+
+## **What this is:**
+
+A four-phase diagnostic that makes AI adaptation legible—to yourself, your manager, and your organization. This isn't about using AI more. It's about answering one question clearly:
+
+*What changes about my role, my output, and my boundaries if AI is assumed to be present and competent?*
+
+Each phase builds on the previous. You can't skip ahead without being exposed.
+
+**Time commitment:** 15 minutes (quick version) or 60 minutes (full version, ~15 min per phase).
+
+---
+
+### Phase 1: Role Decomposition
+
+**Purpose:** Force clarity on what your job actually is—stripped of title and habit.
+
+**Time:** ~15 minutes | **Scope:** Exactly 8 activities, no more
+
+```
+You are my role analyst. Help me decompose my current role into its actual components—not what the job description says, but what I actually spend time and judgment on.
+
+MY ROLE: [title and brief description]
+MY ORGANIZATION: [industry, size, stage]
+WHAT I ACTUALLY DO: [honest assessment of day-to-day]
+
+YOUR TASK:
+Help me categorize exactly 8 significant activities into one of three buckets:
+
+EXECUTION — Value is in completion, not in how it gets done. Output matters; process is interchangeable.
+
+JUDGMENT — Value is in the decision itself. Reasoning matters; output reflects context, taste, or risk calibration that isn't easily transferred.
+
+COORDINATION — Value is in alignment across people or systems. Synchronization matters; work is about interfaces, handoffs, shared understanding.
+
+Then assess each:
+- For EXECUTION: "Could AI complete this acceptably with proper context?" → YES / ALMOST / NO (specific gap)
+- For JUDGMENT: "Does AI make my judgment faster or better, or is it noise?" → ACCELERATES / NEUTRAL / DEGRADES
+- For COORDINATION: "Does AI change who needs to sync, how often, or what we exchange?" → CHANGES / MINOR / NONE
+
+PROCESS:
+Ask me enough questions to identify 8 distinct activities—usually 5-7 questions, but ask more if needed to reach 8. Don't over-interview once you have what you need.
+
+OUTPUT FORMAT (use this structure, list format is fine if tables break):
+
+Activity 1: [name]
+- Category: [Execution/Judgment/Coordination]
+- AI Assessment: [YES/ALMOST/NO or ACCELERATES/NEUTRAL/DEGRADES or CHANGES/MINOR/NONE]
+- Human Constraint: [what still requires a human, if anything]
+
+[Repeat for all 8 activities]
+
+SUMMARY:
+- Execution tasks AI could handle: [count and list]
+- Judgment tasks AI accelerates: [count and list]
+- Coordination tasks AI changes: [count and list]
+- Biggest gap between where I spend time and where my value lives: [one sentence]
+
+Be direct. If I'm protecting tasks that don't need protecting, say so. Clarity over comfort.
+
+```
+
+**What this surfaces:**
+
+- Which parts of your role are already automatable
+- Where your actual value lives vs. where you spend time
+- The human constraints that still matter—and which are just habit
+
+---
+
+### Phase 2: Leverage Identification
+
+**Purpose:** Translate AI presence into measurable advantage—not activity.
+
+**Time:** ~15 minutes | **Scope:** Top 4 activities from Phase 1 where AI has potential
+
+```
+You are my leverage analyst. Help me distinguish between AI usage (activity) and AI leverage (changed output).
+
+MY PHASE 1 SUMMARY: [paste your 8 activities with assessments]
+
+AI TOOLS I USE: [list them]
+HOW I TYPICALLY USE AI: [honest description]
+
+YOUR TASK:
+For my top 4 activities where AI shows potential (YES, ALMOST, or ACCELERATES), determine actual leverage:
+
+LEVERAGE TYPE (pick exactly one per activity):
+- SPEED: Same output, less time
+- SCOPE: More output, same time
+- QUALITY: Better output, same time
+- SEQUENCING: Different order that unlocks something downstream
+- NOTHING: I use AI but outcome isn't measurably different
+
+IF "NOTHING": Why?
+- Haven't actually tried
+- Output wasn't good enough
+- I redo it anyway
+- Too context-dependent
+- Don't trust it (justified or not)
+
+QUANTIFICATION:
+Push me for numbers, but accept proxies: cycle time, revision rounds, stakeholder turnaround, volume per week, error rate, scope of what I can take on. "I feel faster" doesn't count. "I went from 3 drafts to 1" counts.
+
+OUTPUT FORMAT:
+
+Activity 1: [name]
+- AI Tool: [what I use]
+- Leverage Type: [SPEED/SCOPE/QUALITY/SEQUENCING/NOTHING]
+- Evidence: [specific metric or proxy]
+- Confidence: [HIGH/MEDIUM/LOW]
+
+[Repeat for top 4 activities]
+
+SUMMARY:
+- Real leverage (with evidence): [list]
+- Activity theater (using without leverage): [list]
+- Uncaptured opportunity: [list]
+
+Be skeptical. "I use Claude for everything" is not leverage. "I draft 3x faster and send 40% more per week" is leverage.
+
+```
+
+**What this surfaces:**
+
+- The difference between "I use AI" and "my output is different now"
+- Where you're engaged in activity theater
+- Evidence you can point to in a performance review
+
+---
+
+### Phase 3: Workflow Recomposition
+
+**Purpose:** Shift from "tasks assisted by AI" to "work organized around AI."
+
+**Time:** ~15 minutes | **Scope:** One workflow only, max 8 steps in current state
+
+```
+You are my workflow architect. Help me redesign one workflow—not add AI to existing process, but reorganize around AI as assumed capability.
+
+MY HIGHEST-LEVERAGE WORKFLOW: [name it]
+CURRENT STEPS (list up to 8): [describe how it works today]
+WHERE AI IS CURRENTLY INVOLVED: [which steps, how]
+
+YOUR TASK:
+Analyze this workflow through four lenses:
+
+1. STEPS THAT DISAPPEAR
+Which steps exist because they were necessary without AI? (Research, first-drafts, format translation, context reconstruction)
+
+2. STEPS THAT COLLAPSE
+Which sequential steps could become parallel or simultaneous? (Draft→review becomes draft-with-critique; research→synthesize becomes one pass)
+
+3. STEPS THAT REORDER
+What should happen earlier now that it's cheap? (Quality checks, stakeholder input, edge cases)
+What should happen later now that revision is cheap?
+
+4. HUMAN GATES THAT REMAIN
+For each remaining human touchpoint: Is this a real judgment gate or legacy checkpoint? What's the blast radius if AI gets this wrong and no one catches it?
+
+Note: "AI could verify this" only applies when AI has access to ground truth—source systems, authoritative docs, or data it can check against. If there's no source of truth to compare against, it's not verification.
+
+OUTPUT FORMAT:
+
+CURRENT STATE: [numbered list, max 8 steps]
+
+RECOMPOSED STATE: [numbered list]
+- Steps eliminated: [list with reasoning]
+- Steps collapsed: [which ones merged]
+- Steps reordered: [what moved and why]
+- Human gates: [which remain, with blast-radius justification]
+
+TRANSITION: What would I need to change to actually operate this way? [2-3 concrete changes]
+
+If my "recomposed" workflow is just "same steps but faster," push harder. The goal is structural change, not cosmetic.
+
+```
+
+**What this surfaces:**
+
+- Where you're running 2023 workflows with 2025 tools
+- Concrete changes you could make this week
+- Where human review is a real gate vs. legacy habit
+
+---
+
+### Phase 4: Boundary Pressure Test
+
+**Purpose:** Expose how AI lowers the cost of crossing domains—and what breaks.
+
+**Time:** ~15 minutes | **Scope:** 3 adjacent roles, 3 handoffs
+
+```
+You are my role boundary analyst. Help me see how AI changes what's feasible for someone in my role—and what tension that creates.
+
+MY ROLE: [from Phase 1]
+THREE ADJACENT ROLES I INTERACT WITH: [list them]
+THREE REGULAR HANDOFFS I PARTICIPATE IN: [describe each briefly]
+
+YOUR TASK:
+
+FOR EACH ADJACENT ROLE:
+- What do they do that I couldn't do before? (skill gap)
+- What do they do that I shouldn't do? (role boundary)
+- Which gaps does AI close or narrow?
+- What could I now do myself that I currently hand off?
+
+Be specific. "I could do some of their work" = not useful. "I could generate the first draft they usually create, validate it against source documents, and hand off only final review" = useful.
+
+FOR EACH HANDOFF:
+- Original reason for this handoff: Skill? Access? Capacity? Accountability?
+- Does that reason still hold with AI present?
+- Coordination cost of maintaining it?
+- What would need to be true for it to collapse?
+
+THEN:
+
+NEW BOTTLENECKS: If I expand, what coordination problems emerge? Who needs to know? What quality gates don't exist yet?
+
+EMERGENT ROLE SHAPE: What does this role look like in 12 months if I act on this?
+
+OUTPUT FORMAT:
+
+BOUNDARY ASSESSMENT:
+- [Adjacent Role 1]: [stable / artificially maintained] — [specific expansion possible]
+- [Adjacent Role 2]: [stable / artificially maintained] — [specific expansion possible]
+- [Adjacent Role 3]: [stable / artificially maintained] — [specific expansion possible]
+
+HANDOFFS TO QUESTION:
+- [Handoff 1]: [keep / collapse / renegotiate] — [why]
+- [Handoff 2]: [keep / collapse / renegotiate] — [why]
+- [Handoff 3]: [keep / collapse / renegotiate] — [why]
+
+WHAT BREAKS: [coordination problems if everyone does this]
+
+12-MONTH ROLE SHAPE: [2-3 sentences]
+
+The point isn't empire-building. It's seeing where boundaries were drawn based on human limitations that AI changes.
+
+```
+
+**What this surfaces:**
+
+- Which role boundaries are real vs. legacy
+- Where you could expand that you haven't considered
+- Why coordination becomes the new bottleneck
+
+---
+
+### Quick Version (15 Minutes)
+
+For the full diagnostic without the full process. Hard constraint: total output under 600 words.
+
+```
+You are my AI leverage auditor. Rapid assessment of my role's AI exposure and opportunity.
+
+MY ROLE: [title, function, what I actually do]
+MY AI USAGE: [honest description]
+
+Run four questions. Keep each response to 100-150 words max.
+
+1. DECOMPOSITION
+What percentage of my work is execution (AI could complete), judgment (AI accelerates my thinking), coordination (AI changes how we sync)? Push me on the execution percentage if I'm being defensive.
+→ End with: One thing I should stop protecting.
+
+2. LEVERAGE
+Where am I using AI without actual leverage? Where is leverage available that I'm not capturing? What would prove leverage exists?
+→ End with: One metric I should start tracking.
+
+3. WORKFLOW
+Pick my most important workflow. What steps disappear, collapse, or reorder if I assume AI is present? Where am I running a 2023 workflow?
+→ End with: One structural change for this week.
+
+4. BOUNDARIES
+What adjacent work could I now do that I couldn't before? What handoffs might not make sense anymore?
+→ End with: One conversation I should have with someone in an adjacent role.
+
+FINAL OUTPUT (50 words max):
+Where am I on the AI adaptation spectrum—and the single highest-leverage change for the next 30 days?
+
+```
+
+---
+
+### How to Use This
+
+**Solo:** Run all four phases (~60 min) or the quick version (15 min). Output: clear view of exposure, leverage, workflow changes, and expansion opportunities.
+
+**With your manager:** Share outputs. Transforms "use AI more" into specific conversation about role shape and workflow changes.
+
+**On a team:** Everyone does Phase 1-2 solo, then Phase 3-4 together. Surfaces where handoffs need to change and what coordination becomes the bottleneck.
