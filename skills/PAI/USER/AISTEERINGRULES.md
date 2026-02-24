@@ -41,13 +41,13 @@ Correct
 ### Generate Connective Tissue When Writing to SecondBrain
 
 Statement
-: When writing any file to `~/SecondBrain/Knowledge/` or `~/SecondBrain/Sessions/`, always include YAML frontmatter (title, type, domain, tags, date, source, status) and a `## Related` section with wiki-links to related files. Use `python3 ~/SecondBrain/Tools/obsidian_write.py` to scan for related files. Never write bare markdown without frontmatter — the connective tissue is generated at write-time, not retrofitted.
+: When writing any file to `~/SecondBrain/Knowledge/` or `~/SecondBrain/Sessions/`, always include YAML frontmatter (title, type, domain, tags, date, source, status) and a `## Related` section with wiki-links to related files. Use `obsidian-cli` MCP tools or `obsidian-cli query/find` commands to scan for related files. Never write bare markdown without frontmatter — the connective tissue is generated at write-time, not retrofitted.
 
 Bad
 : Save an extract_wisdom output to `Knowledge/my-notes.md` as plain markdown. No frontmatter, no Related section. File is an orphan in the graph — invisible to Obsidian's graph view, search, and Dataview queries. Requires a separate pass to add structure later.
 
 Correct
-: Before writing, generate frontmatter with `obsidian_write.py --frontmatter-only` and scan for related files with `--related-only`. Write the file with frontmatter at top, content in the middle, and `## Related` with wiki-links at the bottom. The file is immediately connected to the knowledge graph.
+: Before writing, use `obsidian-cli query` or `find` to scan for related files by tags/content. Write the file with frontmatter at top, content in the middle, and `## Related` with wiki-links at the bottom. The file is immediately connected to the knowledge graph.
 
 ### Obsidian Frontmatter Schema
 

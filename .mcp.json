@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "obsidian": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/txmyer-dev/obsidian-cli.git",
+        "obsidian-cli",
+        "--vault",
+        "C:/Users/txmye_ficivtv/SecondBrain",
+        "serve"
+      ]
+    }
+  }
+}
