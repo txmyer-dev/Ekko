@@ -5,11 +5,20 @@
  * Reads the consolidated quotes file from SecondBrain and outputs
  * a random quote. Called by StartupGreeting.hook.ts.
  *
- * Output: A formatted quote string to stdout
+ * Exports: Quote interface, parseQuote(), loadAllQuotes(), pickRandomQuote()
+ * for use by DailyWallpaper.ts and other consumers.
+ *
+ * Output (standalone): A formatted quote string to stdout
  */
 
 import { readFileSync } from 'fs';
 import { join } from 'path';
+
+export interface Quote {
+  text: string;
+  attribution: string;
+  raw: string;
+}
 
 const FALLBACK_QUOTES = [
   '"Discipline Equals Freedom." -- Alex Hormozi',
@@ -24,31 +33,54 @@ const FALLBACK_QUOTES = [
   '"I will never wish for fewer epic stories at the end of my life." -- Alex Hormozi',
 ];
 
-function pickRandom(arr: string[]): string {
-  return arr[Math.floor(Math.random() * arr.length)];
+/**
+ * Parse a raw quote line like `"quote text" -- Attribution` into parts.
+ */
+export function parseQuote(raw: string): Quote {
+  const dashMatch = raw.match(/^"(.+)"\s*--\s*(.+)$/s);
+  if (dashMatch) {
+    return { text: dashMatch[1].trim(), attribution: dashMatch[2].trim(), raw };
+  }
+  // Fallback: treat entire string as text, no attribution
+  return { text: raw.replace(/^"|"$/g, ''), attribution: '', raw };
 }
 
-const quotesPath = join(
-  process.env.HOME || process.env.USERPROFILE || '',
-  'SecondBrain/Knowledge/Alex-Hormozi-Quotes.md'
-);
+/**
+ * Load all quotes from the SecondBrain quotes file.
+ * Falls back to embedded quotes if file is missing or empty.
+ */
+export function loadAllQuotes(): Quote[] {
+  const quotesPath = join(
+    process.env.HOME || process.env.USERPROFILE || '',
+    'SecondBrain/Knowledge/Alex-Hormozi-Quotes.md'
+  );
 
-try {
-  const content = readFileSync(quotesPath, 'utf-8');
+  try {
+    const content = readFileSync(quotesPath, 'utf-8');
+    const rawQuotes = content
+      .split('\n')
+      .filter(line => line.startsWith('- "') && line.includes(' -- '))
+      .map(line => line.slice(2).trim());
 
-  // Extract all lines that start with "- " and contain " -- " (quote attribution pattern)
-  const quotes = content
-    .split('\n')
-    .filter(line => line.startsWith('- "') && line.includes(' -- '))
-    .map(line => line.slice(2).trim()); // Remove "- " prefix
-
-  if (quotes.length === 0) {
-    console.log(pickRandom(FALLBACK_QUOTES));
-    process.exit(0);
+    if (rawQuotes.length === 0) {
+      return FALLBACK_QUOTES.map(q => parseQuote(q));
+    }
+    return rawQuotes.map(q => parseQuote(q));
+  } catch {
+    return FALLBACK_QUOTES.map(q => parseQuote(q));
   }
+}
 
-  console.log(pickRandom(quotes));
-} catch {
-  // File missing or unreadable — use fallback quotes
-  console.log(pickRandom(FALLBACK_QUOTES));
+/**
+ * Pick a random quote from all available quotes.
+ */
+export function pickRandomQuote(): Quote {
+  const quotes = loadAllQuotes();
+  return quotes[Math.floor(Math.random() * quotes.length)];
+}
+
+// Standalone mode: output a random quote to stdout
+if (import.meta.main) {
+  const quote = pickRandomQuote();
+  console.log(quote.raw);
 }
