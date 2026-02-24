@@ -1,4 +1,4 @@
-"""ElevenLabs Voice Server — Lightweight FastAPI proxy for PAI on Windows."""
+"""UnrealSpeech Voice Server — Lightweight FastAPI proxy for PAI on Windows."""
 
 import logging
 import time
@@ -20,7 +20,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger("voice-server")
 
-app = FastAPI(title="PAI Voice Server", version="2.0.0")
+app = FastAPI(title="PAI Voice Server", version="3.0.0")
 
 # Rate limiting
 _req_counts: dict[str, dict] = defaultdict(lambda: {"count": 0, "reset": 0.0})
@@ -43,12 +43,12 @@ async def rate_limit(request: Request, call_next):
 # ── Health ────────────────────────────────────────────────────────────
 @app.get("/health")
 async def health():
-    has_key = bool(config.ELEVENLABS_API_KEY)
+    has_key = bool(config.UNREALSPEECH_API_KEY)
     return {
         "status": "ok" if has_key else "missing_api_key",
-        "engine": "elevenlabs",
+        "engine": "unrealspeech",
         "port": config.PORT,
-        "voice_id": config.ELEVENLABS_VOICE_ID,
+        "voice_id": config.UNREALSPEECH_VOICE_ID,
     }
 
 
@@ -63,41 +63,34 @@ async def notify(request: Request):
 
     voice_enabled = body.get("voice_enabled", True)
     if not voice_enabled:
-        return {"status": "success", "message": "Voice disabled", "engine": "elevenlabs"}
+        return {"status": "success", "message": "Voice disabled", "engine": "unrealspeech"}
 
-    voice_id = body.get("voice_id") or config.ELEVENLABS_VOICE_ID
+    voice_id = body.get("voice_id") or config.UNREALSPEECH_VOICE_ID
     voice_settings = body.get("voice_settings", {})
 
-    # Build ElevenLabs request
-    url = f"{config.ELEVENLABS_BASE_URL}/text-to-speech/{voice_id}"
+    # Build UnrealSpeech /stream request
+    url = f"{config.UNREALSPEECH_BASE_URL}/stream"
     headers = {
-        "xi-api-key": config.ELEVENLABS_API_KEY,
+        "Authorization": f"Bearer {config.UNREALSPEECH_API_KEY}",
         "Content-Type": "application/json",
-        "Accept": "audio/mpeg",
     }
     payload: dict = {
-        "text": message[:1000],
-        "model_id": config.ELEVENLABS_MODEL_ID,
+        "Text": message[:1000],
+        "VoiceId": voice_id,
+        "Bitrate": "192k",
+        "Codec": "libmp3lame",
     }
 
-    # Pass through voice_settings from hooks
+    # Map voice_settings to UnrealSpeech parameters
     if voice_settings:
-        vs: dict = {}
-        if "stability" in voice_settings:
-            vs["stability"] = float(voice_settings["stability"])
-        if "similarity_boost" in voice_settings:
-            vs["similarity_boost"] = float(voice_settings["similarity_boost"])
-        if "style" in voice_settings:
-            vs["style"] = float(voice_settings["style"])
-        if "use_speaker_boost" in voice_settings:
-            vs["use_speaker_boost"] = bool(voice_settings["use_speaker_boost"])
-        if vs:
-            payload["voice_settings"] = vs
-
-    # Optional speed parameter (ElevenLabs supports it at top level in some models)
-    speed = voice_settings.get("speed") if voice_settings else None
-    if speed is not None:
-        payload["speed"] = float(speed)
+        if "speed" in voice_settings:
+            # UnrealSpeech speed: -1.0 to 1.0
+            payload["Speed"] = str(float(voice_settings["speed"]))
+        if "pitch" in voice_settings:
+            # UnrealSpeech pitch: 0.5 to 1.5
+            payload["Pitch"] = str(float(voice_settings["pitch"]))
+        if "temperature" in voice_settings:
+            payload["Temperature"] = float(voice_settings["temperature"])
 
     logger.info(f"TTS: '{message[:60]}...' voice={voice_id}")
 
@@ -107,11 +100,11 @@ async def notify(request: Request):
 
         if resp.status_code != 200:
             error_detail = resp.text[:200]
-            logger.error(f"ElevenLabs API error {resp.status_code}: {error_detail}")
+            logger.error(f"UnrealSpeech API error {resp.status_code}: {error_detail}")
             return {
                 "status": "error",
-                "message": f"ElevenLabs API returned {resp.status_code}",
-                "engine": "elevenlabs",
+                "message": f"UnrealSpeech API returned {resp.status_code}",
+                "engine": "unrealspeech",
                 "error": error_detail,
             }
 
@@ -127,16 +120,16 @@ async def notify(request: Request):
         return {
             "status": "success",
             "message": "Notification sent",
-            "engine": "elevenlabs",
+            "engine": "unrealspeech",
             "played": played,
         }
 
     except httpx.TimeoutException:
-        logger.error("ElevenLabs API timeout")
-        return {"status": "error", "message": "API timeout", "engine": "elevenlabs"}
+        logger.error("UnrealSpeech API timeout")
+        return {"status": "error", "message": "API timeout", "engine": "unrealspeech"}
     except Exception as e:
         logger.error(f"Notify failed: {e}")
-        return {"status": "error", "message": str(e), "engine": "elevenlabs"}
+        return {"status": "error", "message": str(e), "engine": "unrealspeech"}
 
 
 # ── Run ───────────────────────────────────────────────────────────────

@@ -11,6 +11,20 @@ an `<algorithm-directive>` into context. Follow it.
 
 If no `<algorithm-directive>` appears, treat as QUICK (hook may have failed).
 
+## Model Selection Heuristics
+
+Not every task needs Opus. Match the model to the work:
+
+| Task Shape | Recommended | Why |
+|-----------|-------------|-----|
+| Complex multi-step reasoning, architectural design, large refactors | **Opus** | Deeper reasoning, better long-range coherence |
+| Focused single-file edits, bug fixes, straightforward implementations | **Sonnet + extended thinking** | Faster, cheaper, often equivalent quality for bounded tasks |
+| Quick lookups, simple questions, file reads | **Haiku** | Instant, minimal cost |
+| Agent workers in parallel (loop mode, swarm) | **Sonnet** | Cost-efficient at scale, good enough per-worker |
+| Plan review, "my developer" critique sessions | **Opus** | Critical thinking benefits from strongest model |
+
+**Default remains Opus for interactive sessions.** But when spawning background agents or sub-agents for bounded tasks, prefer Sonnet to save cost and gain speed. Use `/model` to switch mid-session when the task shape changes.
+
 # System Context
 `read skills/PAI/SKILL.md`
 

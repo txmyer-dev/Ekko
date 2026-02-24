@@ -1,4 +1,4 @@
-"""Configuration for ElevenLabs Voice Server."""
+"""Configuration for UnrealSpeech Voice Server."""
 
 import os
 from pathlib import Path
@@ -16,11 +16,10 @@ if _env_path.exists():
 HOST = "127.0.0.1"
 PORT = 8888
 
-# ElevenLabs
-ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "")
-ELEVENLABS_VOICE_ID = os.environ.get("ELEVENLABS_VOICE_ID", "rWyjfFeMZ6PxkHqD3wGC")
-ELEVENLABS_BASE_URL = "https://api.elevenlabs.io/v1"
-ELEVENLABS_MODEL_ID = "eleven_multilingual_v2"
+# UnrealSpeech
+UNREALSPEECH_API_KEY = os.environ.get("UNREALSPEECH_API_KEY", "")
+UNREALSPEECH_VOICE_ID = os.environ.get("UNREALSPEECH_VOICE_ID", "am_onyx")
+UNREALSPEECH_BASE_URL = "https://api.v8.unrealspeech.com"
 
 # Audio
 TEMP_AUDIO_DIR = Path("/tmp/pai-voice")

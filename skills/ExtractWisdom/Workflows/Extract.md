@@ -6,7 +6,7 @@ Extract dynamic, content-adaptive wisdom from any content source.
 
 | Source | Method |
 |--------|--------|
-| YouTube URL | `fabric -y "URL"` to get transcript |
+| YouTube URL | **yt-dlp** for transcript (NEVER use WebFetch — youtube.com blocks it) |
 | Article URL | WebFetch to get content |
 | File path | Read the file directly |
 | Pasted text | Use directly |
@@ -15,7 +15,24 @@ Extract dynamic, content-adaptive wisdom from any content source.
 
 ### Step 1: Get the Content
 
-Obtain the full text/transcript. For YouTube, use `fabric -y "URL"` to extract transcript. Save to a working file if large.
+**YouTube URLs (youtube.com, youtu.be, m.youtube.com):**
+Do NOT attempt WebFetch — it will always fail. Go directly to yt-dlp:
+```bash
+yt-dlp --write-auto-sub --skip-download --sub-format vtt \
+  -o /tmp/yt-transcript "YOUTUBE_URL" 2>/dev/null
+sed '/^$/d; /^[0-9]/d; /^NOTE/d; /^WEBVTT/d; /-->/d' /tmp/yt-transcript*.vtt | \
+  awk '!seen[$0]++' > /tmp/yt-transcript.txt
+```
+Then read `/tmp/yt-transcript.txt` for the transcript. Also grab metadata with:
+```bash
+yt-dlp --print title --print channel --print description --no-download "YOUTUBE_URL"
+```
+
+**Article URLs:** Use WebFetch to get content.
+**File paths:** Read the file directly.
+**Pasted text:** Use directly.
+
+Save to a working file if large.
 
 ### Step 2: Deep Read
 
@@ -58,3 +75,22 @@ Run the quality checklist from SKILL.md before delivering.
 ### Step 7: Output
 
 Present the complete extraction in the format specified in SKILL.md.
+
+### Step 8: Auto-Save to SecondBrain
+
+After presenting output, automatically save to `~/SecondBrain/Knowledge/`:
+
+1. **Determine filename** using SecondBrain naming conventions:
+   - Podcast/show: `{Guest}-{ShowAbbrev}{Episode}.md` (MW, DOAC, JRE, HL, IF, LI)
+   - YouTube/general: `{Creator}-{Short-Topic}.md`
+   - Book/author: `{Author}-{Short-Title}.md`
+   - No dates in filename. No pattern name. Title-Case-With-Hyphens.
+
+2. **Check for duplicates** — scan `~/SecondBrain/Knowledge/` for existing file with same source. Warn if found.
+
+3. **Write file** with:
+   - YAML frontmatter: title, type (`wisdom-extraction`), domain, tags (2-6 kebab-case), date, source URL, status (`active`)
+   - Full extraction output
+   - `## Related` section with `[[wiki-links]]` to related existing Knowledge files
+
+4. **Confirm** — state the saved filename and path. No permission needed.

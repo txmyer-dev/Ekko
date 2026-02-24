@@ -72,7 +72,9 @@ Apply these instructions to the provided content directly. This is the AI readin
 
 ### Step 4: Content Extraction for URLs
 
-**YouTube URLs:**
+**YouTube URLs (youtube.com, youtu.be, m.youtube.com):**
+
+**NEVER use WebFetch for YouTube URLs — it will always fail.** Go directly to yt-dlp.
 
 Extract transcript using yt-dlp (no Fabric CLI needed):
 ```bash

@@ -84,34 +84,17 @@ const settingsPath = getSettingsPath();
       console.log(result.stdout);
     }
 
-    // Send voice notification for startup greeting (fire-and-forget, non-blocking)
-    const voiceId = settings.daidentity?.voiceId || 's3TPKV1kjDlVtZbl4Ksh';
-    const voiceSettings = settings.daidentity?.voice;
+    // Serve a random daily quote
+    const quotePath = join(paiDir, 'skills/PAI/Tools/DailyQuote.ts');
+    const quoteResult = spawnSync('bun', ['run', quotePath], {
+      encoding: 'utf-8',
+      stdio: ['inherit', 'pipe', 'pipe'],
+      env: process.env
+    });
 
-    // Use AbortController with short timeout to prevent hanging
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 1000); // 1s max
-
-    fetch('http://localhost:8888/notify', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      signal: controller.signal,
-      body: JSON.stringify({
-        message: `${settings.daidentity?.name || 'PAI'} here, ready to go.`,
-        title: 'Session Start',
-        voice_enabled: true,
-        voice_id: voiceId,
-        voice_settings: voiceSettings ? {
-          stability: voiceSettings.stability ?? 0.5,
-          similarity_boost: voiceSettings.similarity_boost ?? 0.75,
-          style: voiceSettings.style ?? 0.0,
-          speed: voiceSettings.speed ?? 1.0,
-          use_speaker_boost: voiceSettings.use_speaker_boost ?? true,
-        } : undefined,
-      }),
-    })
-      .catch(() => {}) // Silent fail if voice server not running
-      .finally(() => clearTimeout(timeoutId));
+    if (quoteResult.stdout && quoteResult.stdout.trim()) {
+      console.log(`\n  \x1b[38;2;147;197;253m💬 Daily Hormozi:\x1b[0m \x1b[3m${quoteResult.stdout.trim()}\x1b[0m\n`);
+    }
 
     // Set initial tab title - always start fresh
     // New sessions are a clean slate, no context from previous sessions

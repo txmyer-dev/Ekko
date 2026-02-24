@@ -1,6 +1,5 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "paiVersion": "2.5",
   "env": {
     "PAI_DIR": "C:/Users/txmye_ficivtv/.claude",
     "PROJECTS_DIR": "",
@@ -8,71 +7,6 @@
     "BASH_DEFAULT_TIMEOUT_MS": "600000",
     "PAI_CONFIG_DIR": "C:/Users/txmye_ficivtv/.config/PAI",
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
-  },
-  "contextFiles": [
-    "skills/PAI/SKILL.md",
-    "skills/PAI/SYSTEM/AISTEERINGRULES.md",
-    "skills/PAI/USER/AISTEERINGRULES.md",
-    "skills/PAI/USER/DAIDENTITY.md"
-  ],
-  "daidentity": {
-    "name": "Ekko",
-    "fullName": "Ekko - Personal AI Infrastructure",
-    "displayName": "Ekko",
-    "color": "#3B82F6",
-    "voiceId": "rWyjfFeMZ6PxkHqD3wGC",
-    "voice": {
-      "stability": 0.35,
-      "similarity_boost": 0.8,
-      "style": 0.9,
-      "speed": 1.1,
-      "use_speaker_boost": true,
-      "volume": 0.8
-    },
-    "startupCatchphrase": "Discipline Equals Freedom."
-  },
-  "principal": {
-    "name": "Tony",
-    "timezone": "America/New_York"
-  },
-  "pai": {
-    "repoUrl": "github.com/txmyer-dev/Ekko",
-    "version": "3.0-surgical"
-  },
-  "contextDisplay": {
-    "compactionThreshold": 83,
-    "_docs": "Autocompact buffer is 16.5% of context window."
-  },
-  "techStack": {
-    "terminal": "Git Bash",
-    "packageManager": "bun",
-    "pythonPackageManager": "uv",
-    "language": "TypeScript"
-  },
-  "notifications": {
-    "ntfy": {
-      "enabled": true,
-      "topic": "ekko-6b6c21fbd9a6ca84",
-      "server": "ntfy.sh"
-    },
-    "thresholds": {
-      "longTaskMinutes": 5
-    },
-    "routing": {
-      "taskComplete": [],
-      "longTask": [
-        "ntfy"
-      ],
-      "backgroundAgent": [
-        "ntfy"
-      ],
-      "error": [
-        "ntfy"
-      ],
-      "security": [
-        "ntfy"
-      ]
-    }
   },
   "permissions": {
     "allow": [
@@ -359,9 +293,88 @@
     "type": "command",
     "command": "${PAI_DIR}/statusline-command.sh"
   },
-  "plansDirectory": "Plans/",
-  "teammateMode": "in-process",
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "github@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "plugin-dev@claude-plugins-official": true,
+    "gitlab@claude-plugins-official": false,
+    "firebase@claude-plugins-official": true,
+    "circleback@claude-plugins-official": false,
+    "firecrawl@claude-plugins-official": true,
+    "posthog@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true
+  },
   "alwaysThinkingEnabled": true,
+  "plansDirectory": "Plans/",
+  "paiVersion": "2.5",
+  "contextFiles": [
+    "skills/PAI/SKILL.md",
+    "skills/PAI/SYSTEM/AISTEERINGRULES.md",
+    "skills/PAI/USER/AISTEERINGRULES.md",
+    "skills/PAI/USER/DAIDENTITY.md"
+  ],
+  "daidentity": {
+    "name": "Ekko",
+    "fullName": "Ekko - Personal AI Infrastructure",
+    "displayName": "Ekko",
+    "color": "#3B82F6",
+    "voiceId": "rWyjfFeMZ6PxkHqD3wGC",
+    "voice": {
+      "stability": 0.35,
+      "similarity_boost": 0.8,
+      "style": 0.9,
+      "speed": 1.1,
+      "use_speaker_boost": true,
+      "volume": 0.8
+    },
+    "startupCatchphrase": "Discipline Equals Freedom."
+  },
+  "principal": {
+    "name": "Tony",
+    "timezone": "America/New_York"
+  },
+  "pai": {
+    "repoUrl": "github.com/txmyer-dev/Ekko",
+    "version": "3.0-surgical"
+  },
+  "contextDisplay": {
+    "compactionThreshold": 83,
+    "_docs": "Autocompact buffer is 16.5% of context window."
+  },
+  "techStack": {
+    "terminal": "Git Bash",
+    "packageManager": "bun",
+    "pythonPackageManager": "uv",
+    "language": "TypeScript"
+  },
+  "notifications": {
+    "ntfy": {
+      "enabled": true,
+      "topic": "ekko-6b6c21fbd9a6ca84",
+      "server": "ntfy.sh"
+    },
+    "thresholds": {
+      "longTaskMinutes": 5
+    },
+    "routing": {
+      "taskComplete": [],
+      "longTask": [
+        "ntfy"
+      ],
+      "backgroundAgent": [
+        "ntfy"
+      ],
+      "error": [
+        "ntfy"
+      ],
+      "security": [
+        "ntfy"
+      ]
+    }
+  },
+  "teammateMode": "in-process",
   "_docs": {
     "_overview": "SETTINGS.JSON - Central configuration for PAI v2.5. Replace __INSTALL_WILL_SET_THIS__ placeholders with your paths.",
     "_sections": {
@@ -381,12 +394,12 @@
     "skills": 45,
     "workflows": 167,
     "hooks": 25,
-    "signals": 159,
-    "files": 25,
-    "work": 92,
-    "sessions": 22,
+    "signals": 211,
+    "files": 27,
+    "work": 210,
+    "sessions": 23,
     "research": 28,
-    "ratings": 271,
-    "updatedAt": "2026-02-22T15:48:13.811Z"
+    "ratings": 331,
+    "updatedAt": "2026-02-24T05:45:45.288Z"
   }
 }

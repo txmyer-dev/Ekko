@@ -6,7 +6,7 @@ description: Personal AI Infrastructure core. The authoritative reference for ho
   🔨 GENERATED FILE - Do not edit directly
   Edit:   ~/.claude/skills/PAI/Components/
   Build:  bun ~/.claude/skills/PAI/Tools/CreateDynamicCore.ts
-  Built:  17 February 2026 09:50:15
+  Built:  24 February 2026 00:05:42
 -->
 
 # Intro to PAI
@@ -274,6 +274,14 @@ IF EFFORT_LEVEL >= Extended (Extended, Advanced, Deep, Comprehensive, or Loop fi
   [INVOKE EnterPlanMode — the ISC construction workshop]
   [Plan mode provides: structured codebase exploration, read-only tool constraint, approval checkpoint]
   [In plan mode — explore using Glob, Grep, Read, WebSearch (read-only tools only)]
+
+  🔍 **DEEP EXPLORATION FRAMING (v1.6.1 — "Prepare to Discuss"):**
+  Frame exploration as COMPREHENSION, not solution-hunting. The difference determines whether you catch version mismatches and deprecated patterns:
+  - **Right:** "Prepare to discuss how [system/library/API] works, including version-specific behavior, breaking changes, and current best practices."
+  - **Wrong:** "Find a fix for [problem]" — optimizes for speed, misses context mismatches.
+  - **Version gate:** Before applying ANY external solution, verify: (1) what version is installed, (2) does the solution target that version, (3) any breaking changes between versions.
+  - **At ALL effort levels (not just Extended+):** The version gate applies whenever external docs/APIs/libraries are involved, even at Standard. Only the deep exploration framing is Extended+-gated.
+
   [Refine ISC: add criteria from code exploration, fix vague ones, discover edge cases]
   [Write complete PRD: CONTEXT section, PLAN section, IDEAL STATE CRITERIA with inline verification methods]
   [INVOKE ExitPlanMode → user reviews PRD naturally as "the plan"]
