@@ -30,7 +30,8 @@ const MARGIN_PCT = 0.15; // 15% margin on each side → 70% text column
 
 const HOME = process.env.HOME || process.env.USERPROFILE || '';
 const OUTPUT_DIR = join(HOME, 'Pictures', 'PAI');
-const OUTPUT_PATH = join(OUTPUT_DIR, 'wallpaper-current.png');
+const SLOT_A = join(OUTPUT_DIR, 'wallpaper-A.png');
+const SLOT_B = join(OUTPUT_DIR, 'wallpaper-B.png');
 const STATE_PATH = join(HOME, '.claude', 'wallpaper-state.json');
 
 // --- CLI flags ---
@@ -44,13 +45,14 @@ interface WallpaperState {
   lastDate: string;
   lastQuoteText: string;
   cycleCount: number;
+  activeSlot: 'A' | 'B';
 }
 
 function loadState(): WallpaperState {
   try {
     return JSON.parse(readFileSync(STATE_PATH, 'utf-8'));
   } catch {
-    return { shownIndices: [], lastDate: '', lastQuoteText: '', cycleCount: 0 };
+    return { shownIndices: [], lastDate: '', lastQuoteText: '', cycleCount: 0, activeSlot: 'A' as const };
   }
 }
 
@@ -196,20 +198,44 @@ function renderWallpaper(quote: Quote): Buffer {
   return canvas.toBuffer('image/png');
 }
 
-// --- Set wallpaper via PowerShell ---
+// --- Set wallpaper via IDesktopWallpaper COM interface (Windows 10/11 native) ---
 function setWallpaper(imagePath: string): void {
   const ps = `
-Add-Type @"
+Add-Type -TypeDefinition @'
 using System;
 using System.Runtime.InteropServices;
-public class Wallpaper {
-    [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
-    public static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
+
+public class WallpaperSetter {
+    [ComImport, Guid("B92B56A9-8B55-4E14-9A89-0199BBB6F93B"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    interface IDesktopWallpaper {
+        void SetWallpaper([MarshalAs(UnmanagedType.LPWStr)] string monitorID,
+                          [MarshalAs(UnmanagedType.LPWStr)] string wallpaper);
+        [return: MarshalAs(UnmanagedType.LPWStr)]
+        string GetWallpaper([MarshalAs(UnmanagedType.LPWStr)] string monitorID);
+        [return: MarshalAs(UnmanagedType.LPWStr)]
+        string GetMonitorDevicePathAt(uint monitorIndex);
+        uint GetMonitorDevicePathCount();
+        void GetMonitorRECT([MarshalAs(UnmanagedType.LPWStr)] string monitorID, out RECT displayRect);
+        void SetBackgroundColor(uint color);
+        uint GetBackgroundColor();
+        void SetPosition(int position);
+        int GetPosition();
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct RECT { public int left, top, right, bottom; }
+
+    [ComImport, Guid("C2CF3110-460E-4fc1-B9D0-8A1C0C9CC4BD")]
+    class DesktopWallpaper {}
+
+    public static void Set(string path) {
+        var dw = (IDesktopWallpaper) new DesktopWallpaper();
+        dw.SetWallpaper(null, path);  // null = all monitors
+        dw.SetPosition(4);            // DWPOS_FILL = 4 (not 5 which is SPAN)
+    }
 }
-"@
-Set-ItemProperty -Path "HKCU:\\Control Panel\\Desktop" -Name WallpaperStyle -Value 10
-Set-ItemProperty -Path "HKCU:\\Control Panel\\Desktop" -Name TileWallpaper -Value 0
-[Wallpaper]::SystemParametersInfo(0x0014, 0, "${imagePath.replace(/\\/g, '\\\\')}", 0x03)
+'@
+[WallpaperSetter]::Set('${imagePath}')
 `;
 
   const result = spawnSync('powershell', ['-NoProfile', '-Command', ps], {
@@ -256,19 +282,25 @@ function main(): void {
     mkdirSync(OUTPUT_DIR, { recursive: true });
   }
 
-  // Save PNG
-  writeFileSync(OUTPUT_PATH, png);
-  console.log(`Saved: ${OUTPUT_PATH} (${png.length} bytes)`);
+  // A/B swap: write new image to the INACTIVE slot, then point Windows to it.
+  // This avoids touching the file Windows is currently displaying as wallpaper.
+  const currentSlot = state.activeSlot || 'A';
+  const nextSlot = currentSlot === 'A' ? 'B' : 'A';
+  const nextPath = nextSlot === 'A' ? SLOT_A : SLOT_B;
 
-  // Set wallpaper (unless preview mode)
+  writeFileSync(nextPath, png);
+  console.log(`Saved: ${nextPath} (${png.length} bytes)`);
+
+  // Set wallpaper to the NEW file (unless preview mode)
   if (!PREVIEW) {
-    setWallpaper(OUTPUT_PATH);
+    setWallpaper(nextPath);
     console.log('Wallpaper set successfully.');
   } else {
     console.log('Preview mode — wallpaper not changed.');
   }
 
-  // Update state
+  // Update state — flip active slot
+  state.activeSlot = nextSlot;
   state.shownIndices.push(index);
   state.lastDate = today;
   state.lastQuoteText = quote.text;
