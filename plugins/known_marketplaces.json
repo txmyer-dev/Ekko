@@ -1,0 +1,26 @@
+{
+  "claude-plugins-official": {
+    "source": {
+      "source": "github",
+      "repo": "anthropics/claude-plugins-official"
+    },
+    "installLocation": "C:\\Users\\txmye_ficivtv\\.claude\\plugins\\marketplaces\\claude-plugins-official",
+    "lastUpdated": "2026-02-27T06:54:03.748Z"
+  },
+  "cc-marketplace": {
+    "source": {
+      "source": "github",
+      "repo": "ananddtyagi/cc-marketplace"
+    },
+    "installLocation": "C:\\Users\\txmye_ficivtv\\.claude\\plugins\\marketplaces\\cc-marketplace",
+    "lastUpdated": "2026-02-26T06:43:03.477Z"
+  },
+  "claude-code-skills": {
+    "source": {
+      "source": "github",
+      "repo": "alirezarezvani/claude-skills"
+    },
+    "installLocation": "C:\\Users\\txmye_ficivtv\\.claude\\plugins\\marketplaces\\claude-code-skills",
+    "lastUpdated": "2026-02-26T06:43:08.935Z"
+  }
+}

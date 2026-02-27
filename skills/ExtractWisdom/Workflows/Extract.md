@@ -78,7 +78,7 @@ Present the complete extraction in the format specified in SKILL.md.
 
 ### Step 8: Auto-Save to SecondBrain
 
-After presenting output, automatically save to `~/SecondBrain/Knowledge/`:
+After presenting output, automatically save to `C:\Users\txmye_ficivtv\My Drive\SecondBrain\Knowledge\`:
 
 1. **Determine filename** using SecondBrain naming conventions:
    - Podcast/show: `{Guest}-{ShowAbbrev}{Episode}.md` (MW, DOAC, JRE, HL, IF, LI)
@@ -86,7 +86,7 @@ After presenting output, automatically save to `~/SecondBrain/Knowledge/`:
    - Book/author: `{Author}-{Short-Title}.md`
    - No dates in filename. No pattern name. Title-Case-With-Hyphens.
 
-2. **Check for duplicates** — scan `~/SecondBrain/Knowledge/` for existing file with same source. Warn if found.
+2. **Check for duplicates** — scan `C:\Users\txmye_ficivtv\My Drive\SecondBrain\Knowledge\` for existing file with same source. Warn if found.
 
 3. **Write file** with:
    - YAML frontmatter: title, type (`wisdom-extraction`), domain, tags (2-6 kebab-case), date, source URL, status (`active`)

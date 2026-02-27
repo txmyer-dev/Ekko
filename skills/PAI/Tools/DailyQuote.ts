@@ -52,7 +52,7 @@ export function parseQuote(raw: string): Quote {
 export function loadAllQuotes(): Quote[] {
   const quotesPath = join(
     process.env.HOME || process.env.USERPROFILE || '',
-    'SecondBrain/Knowledge/Alex-Hormozi-Quotes.md'
+    'My Drive/SecondBrain/Knowledge/Alex-Hormozi-Quotes.md'
   );
 
   try {

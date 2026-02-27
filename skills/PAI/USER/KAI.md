@@ -99,6 +99,7 @@ Brain (Obsidian) is updated as-needed during normal work — no scheduled self-c
 | 2026-02-17 | Who I Am | v2.5→v3.0-surgical, Algorithm v1.6.0, 41 skills, 25 hooks, 259 Fabric slash commands, agent teams | Self-update protocol |
 | 2026-02-22 | Who I Am | 41→45 skills, 163→167 workflows, 259→260 Fabric patterns. Added: GeminiResearch, FactCheck, ContentFormat, TrendingResearch | Self-update protocol |
 | 2026-02-24 | Things I've Learned | Added content-to-infrastructure pipeline pattern (extract→gap→implement). Session: 4 steering rules, 3 CLAUDE.md subfolder files, Algorithm v1.6.1 framing, GitHub Integration Playbook | Self-update protocol |
+| 2026-02-27 | My Architecture | Built infrastructure registry (10 keys, 98 consumers) + audit/migrate tooling. Rewrote Heartbeat to isolated gathering architecture (1 MCP per call). Added infrastructure awareness to persistent memory. | Self-update protocol |
 
 ---
 

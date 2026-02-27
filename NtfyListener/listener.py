@@ -24,7 +24,7 @@ NTFY_TOPIC = "ekko-6b6c21fbd9a6ca84"
 NTFY_URL = f"https://{NTFY_SERVER}/{NTFY_TOPIC}/sse"
 
 # Where to write inbound messages
-SECONDBRAIN_INBOX = Path.home() / "SecondBrain" / "Inbox" / "ntfy-inbox.md"
+SECONDBRAIN_INBOX = Path.home() / "My Drive" / "SecondBrain" / "Inbox" / "ntfy-inbox.md"
 FALLBACK_INBOX = Path.home() / ".claude" / "MEMORY" / "ntfy-inbox.md"
 
 # Logging

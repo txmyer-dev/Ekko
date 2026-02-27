@@ -5,7 +5,7 @@
 
 set -euo pipefail
 
-PRIMARY="C:/Users/txmye_ficivtv/SecondBrain"
+PRIMARY="C:/Users/txmye_ficivtv/My Drive/SecondBrain"
 FALLBACK="C:/Users/txmye_ficivtv/.claude/SecondBrain-fallback"
 MARKER="$PRIMARY/.obsidian"
 LOCKFILE="/tmp/secondbrain-sync.lock"

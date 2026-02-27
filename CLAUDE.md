@@ -30,7 +30,7 @@ Not every task needs Opus. Match the model to the work:
 
 ## SecondBrain Output Standards
 
-Default output location for all notes, guides, plans, and reference material is the Obsidian vault at `~/SecondBrain/`. Use the `obsidian` MCP tools (`create_note`, `find_notes`, `get_note_content`, `get_vault_info`) for vault operations. For related-file discovery, use `obsidian-cli --vault ~/SecondBrain query` or `find` commands to scan by frontmatter properties or content before writing.
+Default output location for all notes, guides, plans, and reference material is the Obsidian vault at `C:\Users\txmye_ficivtv\My Drive\SecondBrain`. Use the `obsidian` MCP tools (`create_note`, `find_notes`, `get_note_content`, `get_vault_info`) for vault operations. For related-file discovery, use `obsidian-cli --vault "C:\Users\txmye_ficivtv\My Drive\SecondBrain" query` or `find` commands to scan by frontmatter properties or content before writing.
 
 ### Directory Map
 
@@ -97,7 +97,7 @@ Every project plan file gets an NTFS hardlink in `Plans/` so all plans are reada
 
 **Creating a hardlink (PowerShell required on Windows):**
 ```powershell
-New-Item -ItemType HardLink -Path "$HOME\SecondBrain\Plans\{Plan-Name}.md" -Target "$HOME\SecondBrain\Knowledge\{Plan-Name}.md"
+New-Item -ItemType HardLink -Path "$HOME\My Drive\SecondBrain\Plans\{Plan-Name}.md" -Target "$HOME\My Drive\SecondBrain\Knowledge\{Plan-Name}.md"
 ```
 
 **Rules:**
@@ -111,8 +111,8 @@ New-Item -ItemType HardLink -Path "$HOME\SecondBrain\Plans\{Plan-Name}.md" -Targ
 - Every file MUST end with a `## Related` section containing wiki-links to related files
 - Use `obsidian-cli` to discover related files before writing:
   ```bash
-  obsidian-cli --vault ~/SecondBrain query tags --contains "tag1"
-  obsidian-cli --vault ~/SecondBrain find "keyword"
+  obsidian-cli --vault "C:\Users\txmye_ficivtv\My Drive\SecondBrain" query tags --contains "tag1"
+  obsidian-cli --vault "C:\Users\txmye_ficivtv\My Drive\SecondBrain" find "keyword"
   ```
 - Fabric pattern pages use `[[pattern_name]]` links (snake_case, no .md)
 

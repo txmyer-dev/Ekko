@@ -2,7 +2,7 @@
 
 ## Auto-Save to SecondBrain (MANDATORY)
 
-After every extraction, **automatically save the output** to `~/SecondBrain/Knowledge/` without asking. This is not optional.
+After every extraction, **automatically save the output** to `C:\Users\txmye_ficivtv\My Drive\SecondBrain\Knowledge\` without asking. This is not optional.
 
 ### Naming Convention
 
@@ -33,11 +33,11 @@ status: active
 
 ### Related Section (Required)
 
-End every file with a `## Related` section containing `[[wiki-links]]` to existing SecondBrain files. Scan `~/SecondBrain/Knowledge/` filenames to find related content by topic, speaker, or domain.
+End every file with a `## Related` section containing `[[wiki-links]]` to existing SecondBrain files. Scan `C:\Users\txmye_ficivtv\My Drive\SecondBrain\Knowledge\` filenames to find related content by topic, speaker, or domain.
 
 ### Deduplication
 
-Before writing, check if a file for the same source already exists in `~/SecondBrain/Knowledge/`. If it does, warn the user and ask whether to overwrite or skip.
+Before writing, check if a file for the same source already exists in `C:\Users\txmye_ficivtv\My Drive\SecondBrain\Knowledge\`. If it does, warn the user and ask whether to overwrite or skip.
 
 ### Confirmation
 

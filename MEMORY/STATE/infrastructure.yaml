@@ -1,0 +1,313 @@
+# PAI Infrastructure Registry — Single Source of Truth
+# ====================================================
+# Every path, token, URL, and config value that multiple files depend on.
+# When Tony says "I moved X" or "I changed Y", Ekko reads this file,
+# finds all consumers, and updates them.
+#
+# Consumer types:
+#   - file: <path>          — single file (used by audit + migrate)
+#   - glob: <pattern>       — wildcard match (used by migrate only)
+#   - note: <text>          — informational, no tooling action
+#
+# Audit:   bash ~/.claude/tools/pai-infra.sh audit
+# Show:    bash ~/.claude/tools/pai-infra.sh show
+# Migrate: bash ~/.claude/tools/pai-infra.sh migrate <key> <old_value> <new_value>
+#
+# Updated: 2026-02-27
+
+# =============================================================================
+# PATHS
+# =============================================================================
+
+vault_path:
+  description: "Obsidian SecondBrain vault root (Google Drive)"
+  value_win: "C:\\Users\\txmye_ficivtv\\My Drive\\SecondBrain"
+  value_unix: "/c/Users/txmye_ficivtv/My Drive/SecondBrain"
+  value_posix: "~/My Drive/SecondBrain"
+  grep_pattern: "SecondBrain"
+  consumers:
+    # Config & tools — WILL BREAK if path changes
+    - file: ~/.claude/CLAUDE.md
+      context: "SecondBrain output standards, directory map"
+    - file: ~/.claude/.mcp.json
+      context: "obsidian MCP server --vault argument"
+    - file: ~/.claude/scripts/secondbrain-sync.sh
+      context: "vault sync script source/dest paths"
+    - file: ~/.claude/NtfyListener/listener.py
+      context: "ntfy listener output path"
+    # Heartbeat
+    - file: ~/My Drive/SecondBrain/Heartbeat/run-heartbeat.sh
+      context: "OUTPUT_DIR and LOG_FILE paths"
+    - file: ~/My Drive/SecondBrain/Heartbeat/heartbeat-config.json
+      context: "sessions_dir output path"
+    - file: ~/My Drive/SecondBrain/Heartbeat/heartbeat-legacy.py
+      context: "legacy runner paths (dormant)"
+    # Skills — functional references
+    - file: ~/.claude/skills/PAI/Tools/DailyQuote.ts
+      context: "vault path for quote storage"
+    - file: ~/.claude/skills/PAI/Tools/DailyWallpaper.ts
+      context: "wallpaper storage path"
+    - file: ~/.claude/skills/PAI/USER/AISTEERINGRULES.md
+      context: "knowledge file write path rule"
+    - file: ~/.claude/skills/PAI/USER/SKILLCUSTOMIZATIONS/ExtractWisdom/PREFERENCES.md
+      context: "extraction output directory"
+    - file: ~/.claude/skills/PAI/USER/SKILLCUSTOMIZATIONS/Fabric/PREFERENCES.md
+      context: "fabric output directory"
+    - file: ~/.claude/skills/ExtractWisdom/Workflows/Extract.md
+      context: "extraction save target"
+    - file: ~/.claude/skills/FactCheck/SKILL.md
+      context: "fact check output path"
+    - file: ~/.claude/skills/GeminiResearch/SKILL.md
+      context: "research output path"
+    # ClientKit — documentation references (mention vault as example)
+    - file: ~/.claude/skills/PAI/ClientKit/client-first-week-playbook.md
+      context: "client setup vault reference"
+    - file: ~/.claude/skills/PAI/ClientKit/client-presession-checklist.md
+      context: "client checklist vault reference"
+    - file: ~/.claude/skills/PAI/ClientKit/client-secondbrain-template.md
+      context: "client vault template"
+    # Telos (life goals system) — reference vault paths
+    - file: ~/.claude/skills/PAI/USER/TELOS/PROJECTS.md
+      context: "project paths referencing vault"
+    - file: ~/.claude/skills/PAI/USER/TELOS/TELOS.md
+      context: "telos system vault reference"
+    - file: ~/.claude/skills/PAI/USER/TELOS/BOOKS.md
+      context: "book list vault reference"
+    - file: ~/.claude/skills/PAI/USER/TELOS/CHALLENGES.md
+      context: "challenges vault reference"
+    - file: ~/.claude/skills/PAI/USER/TELOS/STRATEGIES.md
+      context: "strategies vault reference"
+    - file: ~/.claude/skills/PAI/USER/TELOS/updates.md
+      context: "telos updates vault reference"
+    - file: ~/.claude/skills/PAI/USER/TECHSTACKPREFERENCES.md
+      context: "tech stack vault reference"
+    # Self-references (informational — not migrated)
+    - file: ~/.claude/MEMORY/STATE/infrastructure.yaml
+      context: "this registry (self-reference)"
+    - file: ~/.claude/tools/pai-infra.sh
+      context: "audit tool search dir"
+    # KAI soul file
+    - file: ~/.claude/skills/PAI/USER/KAI.md
+      context: "soul file vault reference"
+
+voice_server:
+  description: "PAI Voice Server (ElevenLabs/UnrealSpeech TTS)"
+  value_url: "http://localhost:8888"
+  value_port: "8888"
+  grep_pattern: "localhost:8888"
+  propagation_note: "The Algorithm template (v1.6.0.md) embeds voice curl templates that propagate to ALL skills and agents via SKILL.md. When the port changes, update the Algorithm template — skills inherit it. Individual skill consumers below are listed for migrate completeness."
+  consumers:
+    # Core voice infrastructure — WILL BREAK if port changes
+    - file: ~/.claude/VoiceServer/start.sh
+      context: "server startup port binding"
+    - file: ~/.claude/hooks/VoiceGate.hook.ts
+      context: "voice curl detection and gating"
+    - file: ~/.claude/hooks/handlers/VoiceNotification.ts
+      context: "voice notification handler endpoint"
+    - file: ~/.claude/hooks/lib/notifications.ts
+      context: "notification library endpoint"
+    - file: ~/.claude/hooks/AlgorithmTracker.hook.ts
+      context: "algorithm tracker voice endpoint"
+    - file: ~/.claude/hooks/UpdateTabTitle.hook.ts
+      context: "tab title updater voice endpoint"
+    - file: ~/.claude/skills/VoiceServer/SKILL.md
+      context: "skill documentation and endpoint"
+    - file: ~/.claude/skills/VoiceServer/Tools/VoiceServerManager.ts
+      context: "health check and notification endpoints"
+    - file: ~/.claude/skills/VoiceServer/Workflows/Status.md
+      context: "status check workflow"
+    # Heartbeat
+    - file: ~/My Drive/SecondBrain/Heartbeat/run-heartbeat.sh
+      context: "VOICE_HEALTH and notify curl"
+    - file: ~/My Drive/SecondBrain/Heartbeat/heartbeat-config.json
+      context: "notify_url and health_url"
+    # Algorithm & skills (voice curl templates)
+    - file: ~/.claude/skills/PAI/SKILL.md
+      context: "phase announcement curls"
+    - file: ~/.claude/skills/PAI/Components/Algorithm/v1.6.0.md
+      context: "algorithm voice curl templates"
+    - file: ~/.claude/skills/Agents/AgentPersonalities.md
+      context: "agent voice notification endpoint"
+    - file: ~/.claude/skills/Agents/SKILL.md
+      context: "agent skill voice endpoint"
+    # All 12 agent definition files contain voice curl templates
+    - file: ~/.claude/agents/Algorithm.md
+      context: "agent voice curl"
+    - file: ~/.claude/agents/Architect.md
+      context: "agent voice curl"
+    - file: ~/.claude/agents/Artist.md
+      context: "agent voice curl"
+    - file: ~/.claude/agents/ClaudeResearcher.md
+      context: "agent voice curl"
+    - file: ~/.claude/agents/CodexResearcher.md
+      context: "agent voice curl"
+    - file: ~/.claude/agents/Designer.md
+      context: "agent voice curl"
+    - file: ~/.claude/agents/Engineer.md
+      context: "agent voice curl"
+    - file: ~/.claude/agents/GeminiResearcher.md
+      context: "agent voice curl"
+    - file: ~/.claude/agents/GrokResearcher.md
+      context: "agent voice curl"
+    - file: ~/.claude/agents/Intern.md
+      context: "agent voice curl"
+    - file: ~/.claude/agents/Pentester.md
+      context: "agent voice curl"
+    - file: ~/.claude/agents/QATester.md
+      context: "agent voice curl"
+    # Skills with embedded voice curls (large group — migrate handles via sed)
+    - file: ~/.claude/skills/Agents/Workflows/CreateCustomAgent.md
+      context: "agent creation voice curl"
+    - file: ~/.claude/skills/Agents/Workflows/SpawnParallelAgents.md
+      context: "parallel agents voice curl"
+    - file: ~/.claude/skills/Art/SKILL.md
+      context: "art skill voice curl"
+    - file: ~/.claude/skills/Aphorisms/SKILL.md
+      context: "aphorisms voice curl"
+    # PAI system docs with voice references
+    - file: ~/.claude/skills/PAI/SYSTEM/SKILLSYSTEM.md
+      context: "skill system voice curl documentation"
+    - file: ~/.claude/skills/PAI/SYSTEM/THEHOOKSYSTEM.md
+      context: "hook system voice endpoint documentation"
+    - file: ~/.claude/skills/PAI/SYSTEM/THENOTIFICATIONSYSTEM.md
+      context: "notification system voice endpoint"
+    - file: ~/.claude/skills/PAI/SYSTEM/TOOLS.md
+      context: "tools reference voice endpoint"
+    - file: ~/.claude/skills/PAI/Tools/IntegrityMaintenance.ts
+      context: "integrity maintenance voice endpoint"
+    - file: ~/.claude/skills/PAI/Tools/pai.ts
+      context: "PAI CLI voice endpoint"
+    # Install/setup docs
+    - file: ~/.claude/INSTALL.md
+      context: "install guide voice server reference"
+    - file: ~/.claude/INSTALL.ts
+      context: "install script voice server config"
+    # Heartbeat references
+    - file: ~/My Drive/SecondBrain/Heartbeat/heartbeat-legacy.py
+      context: "legacy heartbeat voice endpoint"
+    - file: ~/My Drive/SecondBrain/Heartbeat/heartbeat.md
+      context: "heartbeat docs voice endpoint"
+    # Self-reference
+    - file: ~/.claude/MEMORY/STATE/infrastructure.yaml
+      context: "this registry (self-reference)"
+    # Backup files (informational only)
+    - file: ~/.claude/hooks/handlers/.backup-v2.5/VoiceNotification.ts
+      context: "backup voice handler (dormant)"
+    - file: ~/.claude/hooks/handlers/.backup-v2.5/SystemIntegrity.ts
+      context: "backup system integrity (dormant)"
+    - file: ~/.claude/hooks/handlers/DocCrossRefIntegrity.ts
+      context: "doc cross-ref integrity checker"
+
+voice_server_scripts:
+  description: "Voice server start/stop script paths"
+  value: "~/.claude/VoiceServer/"
+  grep_pattern: "VoiceServer"
+  consumers:
+    - file: ~/My Drive/SecondBrain/Heartbeat/run-heartbeat.sh
+      context: "VOICE_START and VOICE_STOP variables"
+    - file: ~/My Drive/SecondBrain/Heartbeat/heartbeat-config.json
+      context: "start_script and stop_script paths"
+
+# =============================================================================
+# CREDENTIALS & TOKENS
+# =============================================================================
+
+todoist_token:
+  description: "Todoist API bearer token"
+  sensitive: true
+  value_redacted: "2850930f...6bbe"
+  grep_pattern: "2850930f"
+  consumers:
+    - file: ~/My Drive/SecondBrain/Heartbeat/run-heartbeat.sh
+      context: "TODOIST_TOKEN variable for REST API calls"
+    - file: ~/.claude.json
+      context: "todoist MCP server Authorization header (user scope)"
+
+todoist_api:
+  description: "Todoist REST API endpoint"
+  value: "https://api.todoist.com/api/v1/tasks"
+  grep_pattern: "api.todoist.com"
+  consumers:
+    - file: ~/My Drive/SecondBrain/Heartbeat/run-heartbeat.sh
+      context: "TODOIST_API variable"
+    - file: ~/My Drive/SecondBrain/Heartbeat/heartbeat-legacy.py
+      context: "legacy heartbeat API endpoint (dormant)"
+
+# =============================================================================
+# USER IDENTITY
+# =============================================================================
+
+home_dir:
+  description: "Windows user home directory"
+  value_win: "C:\\Users\\txmye_ficivtv"
+  value_unix: "/c/Users/txmye_ficivtv"
+  grep_pattern: "txmye_ficivtv"
+  note: "Hardcoded in many paths. Most files use ~ or $HOME instead. Only audit files with literal username."
+  consumers:
+    - file: ~/.claude/CLAUDE.md
+      context: "SecondBrain absolute paths"
+    - file: ~/.claude/.mcp.json
+      context: "obsidian vault absolute path"
+    - file: ~/.claude/settings.json
+      context: "principal config, project paths"
+    - file: ~/.claude/scripts/secondbrain-sync.sh
+      context: "sync script absolute paths"
+    - file: ~/.claude/plugins/installed_plugins.json
+      context: "plugin install paths"
+    - file: ~/.claude/plugins/known_marketplaces.json
+      context: "marketplace paths"
+    - file: ~/.claude/skills/ExtractWisdom/Workflows/Extract.md
+      context: "extraction absolute paths"
+    - file: ~/.claude/skills/PAI/USER/AISTEERINGRULES.md
+      context: "steering rules absolute paths"
+    - file: ~/.claude/skills/PAI/USER/SKILLCUSTOMIZATIONS/ExtractWisdom/PREFERENCES.md
+      context: "extraction prefs absolute paths"
+    - file: ~/.claude/skills/PAI/USER/SKILLCUSTOMIZATIONS/Fabric/PREFERENCES.md
+      context: "fabric prefs absolute paths"
+    - file: ~/.claude/skills/PAI/USER/TECHSTACKPREFERENCES.md
+      context: "tech stack prefs absolute paths"
+
+principal_name:
+  description: "User's display name"
+  value: "Tony"
+  source: "~/.claude/settings.json → principal.name"
+  note: "Most systems read from settings.json at runtime — no hardcoded consumers. Heartbeat reads via python3."
+  consumers:
+    - file: ~/.claude/settings.json
+      context: "canonical source"
+
+timezone:
+  description: "User's timezone"
+  value: "America/Chicago"
+  source: "~/.claude/settings.json → principal.timezone"
+  consumers:
+    - file: ~/.claude/settings.json
+      context: "canonical source"
+    - file: ~/.claude/skills/PAI/ClientKit/client-settings-reference.md
+      context: "default timezone example"
+
+# =============================================================================
+# SERVICES & ENDPOINTS
+# =============================================================================
+
+claude_memory_dir:
+  description: "PAI memory system root"
+  value: "~/.claude/MEMORY"
+  grep_pattern: "MEMORY/WORK|MEMORY/STATE|MEMORY/LEARNING"
+  consumers:
+    - file: ~/My Drive/SecondBrain/Heartbeat/run-heartbeat.sh
+      context: "gather_local reads MEMORY/WORK"
+    - file: ~/.claude/skills/PAI/SKILL.md
+      context: "context recovery search paths"
+
+ntfy_topic:
+  description: "ntfy push notification topic"
+  value: "ekko-6b6c21fbd9a6ca84"
+  grep_pattern: "ekko-6b6c21fbd9a6ca84"
+  consumers:
+    - file: ~/My Drive/SecondBrain/Heartbeat/heartbeat-config.json
+      context: "ntfy_topic (currently disabled)"
+    - file: ~/.claude/NtfyListener/listener.py
+      context: "ntfy listener topic subscription"
+    - file: ~/.claude/settings.json
+      context: "ntfy topic configuration"
