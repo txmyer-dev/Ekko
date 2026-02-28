@@ -56,3 +56,6 @@ skills/PAI/USER/TELOS
 # ── Session transcripts ──
 *.transcript
 hooks/subagent-stop-debug.log
+
+# ── Disabled Fabric commands (backup, not tracked) ──
+commands-disabled/
